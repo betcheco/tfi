@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>http://localhost:49915/img/logoaag.jpg</ImageUrl>
+    <NavigateUrl>https://www.aag.org.ar/</NavigateUrl>
+    <AlternateText>Asociacion de golf de Argentina</AlternateText>
+    <Impressions>40</Impressions>
+    <Keyword>Asociacion de golf de Argentina</Keyword>
+  </Ad>
+</Advertisements>

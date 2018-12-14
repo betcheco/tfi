@@ -1,0 +1,463 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="masterPrincipal.master.vb" Inherits="Index.masterPrincipal" %>
+<%@ Register Src="~/UserControls/ModalError.ascx" TagPrefix="userControl" TagName="ModalError" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>GolfTracking</title>
+      <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+       <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+       <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+
+ <%--   <link href="vendor/customreportes.css" rel="stylesheet" />
+    <link href="vendor/fontAwasome.css" rel="stylesheet" />--%>
+
+    <%--Api translate--%>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Mask jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript" >
+     //Google translate 
+                    function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+
+                
+                 var zoom = 0;
+                    function incFontSize() {
+                        if (zoom < 4) {
+                            zoom++;
+                            console.log('incFontSize');
+                            $('#container').each(function () {
+                                var k = parseInt($(this).css('font-size'));
+                                var redSize = k + 1; //((k * 105) / 100);
+                                $(this).css('font-size', redSize);
+
+                            });
+                        }
+                    }
+                    function decFontSize() {
+                        if (zoom > 0) {
+                            zoom--;
+                            $('#container').each(function () {
+                                var k = parseInt($(this).css('font-size'));
+                                var redSize = k - 1; //((k * 95) / 100);
+                                $(this).css('font-size', redSize);
+
+                            });
+                        }
+                    }
+
+    </script>
+
+</head>
+     <style type="text/css">
+        .Star
+        {
+            background-image: url(img/Star.gif);
+            height: 17px;
+            width: 17px;
+        }
+        .WaitingStar
+        {
+            background-image: url(img/WaitingStar.gif);
+            height: 17px;
+            width: 17px;
+        }
+        .FilledStar
+        {
+            background-image: url(img/FilledStar.gif);
+            height: 17px;
+            width: 17px;
+        }
+        .Big-Star
+        {
+            background-image: url(img/Star.gif);
+            height: 50px;
+            width: 50px;
+            float: left;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        .Big-WaitingStar
+        {
+            background-image: url(img/WaitingStar.gif);
+            height: 50px;
+            width: 50px;
+            float: left;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+        .Big-FilledStar
+        {
+            background-image: url(img/FilledStar.gif);
+            height: 50px;
+            width: 50px;
+            float: left;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    </style>
+<body id="page-top">
+      <form id="form1" runat="server">
+    <div>
+       
+    </div>
+
+          <%--NAVBAR--%>
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-color-light">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand mr-1 text-white" href="Home.aspx">GolfTracking</a>
+                  <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+                      <i class="fas fa-bars"></i>
+                  </button>
+
+                  <!--Links -->
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
+                      <li class="nav-item d-inline-flex">
+                          <a class="nav-link" href="Home.aspx">¿Quienes somos?</a>
+                      </li>
+                      <li class="nav-item d-inline-flex">
+                          <a class="nav-link" href="Noticias.aspx">Noticias</a>
+                      </li>
+                      <li class="nav-item d-inline-flex">
+                          <a class="nav-link" href="FAQs.aspx">FAQs</a>
+                             
+                          
+                      &nbsp;</li>
+                  </ul>
+                   <a class="nav-link" href="#" onclick="incFontSize()"><i class="fas fa-search-plus"></i></a>
+                    <a class="nav-link" href="#" onclick="decFontSize()"><i class="fas fa-search-minus"></i></a>
+                   <div class="pull-left" id="google_translate_element"></div>
+                  <!--Search Bar-->
+                  <div class="form-inline my-2 my-lg-0 ml-5">
+                      <input class="form-control" id="inputSearch" type="search" placeholder="Buscar" aria-label="Search" runat="server">
+                      <asp:linkbutton runat="server" class="btn  btn-primary my-2 my-sm-0 fas fa-search" type="submit" Text='' OnClick="Unnamed1_Click">
+                          <%--<span class="fas fa-search"> </span>--%>
+                      </asp:linkbutton>
+
+                  </div>
+
+                  <!-- NavBar Login-->
+                  <ul class="navbar-nav mx-2">
+                      <li id="btnIngresarNavBar" class="nav-item no-arrow inline" runat="server">
+                          <div class="dropdown">
+                              <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingresar
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                  <div class="px-4 py-3">
+                                      <div class="form-group">
+                                          <label for="inputEmail">Email</label>
+                                          <asp:TextBox ID="inputEmail" runat="server" placeholder="Email" class="form-control"  TextMode="Email" ></asp:TextBox>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="inputPassword">Contraseña</label>
+                                          <asp:TextBox ID="inputPassword" runat="server" placeholder="Contraseña" class="form-control"  TextMode="Password"></asp:TextBox>
+                                      </div>
+                                      <div class="form-group">
+                                          <%-- <div class="checkbox">
+                                          <asp:CheckBox ID="checkbokRecordarPassword" runat="server" Text="Recordar Contraseña" />
+                                      </div>--%>
+                                      </div>
+                                      <asp:Button type="button" ID="btnIngresar" runat="server" Text="Ingresar" class="btn btn-primary btn-block" />
+                                  </div>
+                                  <div class="text-center">
+                                      <a class="d-block small mt-3" href="register.aspx">Registrarse</a>
+                                      <a class="d-block small" href="ForgotPassword.aspx">¿Olvidaste tu contraseña?</a>
+                                  </div>
+
+                              </div>
+                          </div>
+                      </li>
+                      
+              
+
+                      <!--NavBar Username & Logout -->
+                      <li class="nav-item d-inline-flex" id="username" runat="server">
+                          <a runat="server" class="nav-link" href="#" id="ProfileNavBarBtn"></a>
+                      </li>
+                      <li runat="server" id="navbarSeparador" class="text-white nav-link d-inline-flex"> | </li>
+                      <li class="nav-item d-inline-flex" id="logoutOption" runat="server">
+                          <a runat="server" class="nav-link" href="#" id="LogoutBtn" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                      </li>
+                  </ul>
+               </div>
+          </nav>
+
+          <%--ENCUESTA--%>
+               <div runat="server" id="divEncuesta" class="card bg-color-dark" style="width: 18rem; position: fixed; bottom: 5px; right: 5px; border-color: black;">
+            <div id="divEncuestaPreguntas" runat="server" class="card-body" visible="true">
+                <h5 class="card-title">Pssst! Tengo una pregunta</h5>
+                <p class="card-text" runat="server" id="encuestaText"></p>
+                <asp:Repeater ID="rptEncuestaOpciones" runat="server">
+                    <ItemTemplate>
+                        <asp:LinkButton
+                            class="btn btn-primary"
+                            runat="server"
+                            UseSubmitBehavior="false"
+                            CommandArgument='<%# Eval("id") %>'>
+                                <%# Eval("nombre") %>
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+
+            <div id="divEncuestaChart" runat="server" class="card-body" visible="false">
+                <h5 class="card-title">Resultados</h5>
+                <asp:Chart ID="chartEncuesta" runat="server" Style="max-width: 100%">
+                    <Series>
+                        <asp:Series Name="Series1"></asp:Series>
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                    </ChartAreas>
+                </asp:Chart>
+            </div>
+
+            <asp:LinkButton class="nav-link" ID="btnCloseEncuesta" runat="server" Style="position: absolute; right: 0; top: 0">
+                <i class="fas fa-times"></i>
+            </asp:LinkButton>
+
+        </div>
+
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul id="sidebar" class="sidebar navbar-nav bg-color-dark" runat="server" visible="false">
+        <li id="btnProfileSidebar" class="nav-item" runat="server">
+          <a class="nav-link" href="MiPerfil.aspx">
+            <i  class="fas fa-fw fa-user-alt" runat="server"></i>
+            <span>Mi perfil</span>
+          </a>
+        </li>
+            <li id="btnABMNoticasSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="ABMNoticias.aspx">
+            <i  class="fas fa-fw  fa-newspaper" runat="server"></i>
+            <span>Administrar Noticias</span>
+          </a>
+        </li>
+        <li id="btnMisPublicacionesSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="MisPublicaciones.aspx">
+            <i  class="fas fa-fw fa-book-reader" runat="server"></i>
+            <span>Mis publicaciones</span>
+          </a>
+        </li>
+   
+          <li id="btnSegBackupSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="Backup.aspx">
+            <i  class="fas fa-fw fa-database" runat="server"></i>
+            <span>Backups</span>
+          </a>
+        </li>
+           <li id="btnSegRestoreSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="Restore.aspx">
+            <i  class="fas fa-fw fa-server" runat="server"></i>
+            <span>Restore</span>
+          </a>
+        </li>
+           <li id="btnSegUsuariosSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="Usuarios.aspx">
+            <i  class="fas fa-fw fa-users-cog" runat="server"></i>
+            <span>Administracion de usuarios</span>
+          </a>
+        </li>
+           <li id="btnSegBitacoraSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="Bitacora.aspx">
+            <i  class="fas fa-fw fa-tasks" runat="server"></i>
+            <span>Consulta Bitacora</span>
+          </a>
+        </li>
+           <li id="btnCuentaCorrienteSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="Cuentacorriente.aspx">
+            <i  class="fas fa-fw fa-coins" runat="server"></i>
+            <span>Cuenta corriente</span>
+          </a>
+        </li>          
+             <li id="btnAdminCuentaCorrienteSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="Cuentacorriente.aspx">
+            <i  class="fas fa-fw fa-coins" runat="server"></i>
+            <span>Admin Cuenta corriente</span>
+          </a>
+        </li>
+           <li id="btnSegRolesSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="Roles.aspx">
+            <i  class="fas fa-fw fa-user-shield" runat="server"></i>
+            <span>Administracion de roles</span>
+          </a>
+        </li>
+          <li id="btnABMPublicacionesSideBar" class="nav-item" runat="server" visible="false">
+          <a class="nav-link" href="ABMPublicaciones.aspx">
+            <i  class="fas fa-fw fa-money-check" runat="server"></i>
+            <span>Administracion de publicaciones</span>
+          </a>
+        </li>
+           <li class="nav-item" id="btnReportesSideBar"  runat="server" visible="false">
+          <a class="nav-link" href="Reportes.aspx">
+            <i class="fas fa-fw fa-chart-line"></i>
+            <span>Reportes</span></a>
+        </li>
+             <li class="nav-item" id="btnABMEncuestasSideBar"  runat="server" visible="false">
+          <a class="nav-link" href="ABMEncuestas.aspx">
+            <i class="fas fa-fw fa-question-circle"></i>
+            <span>Administrar encuestas</span></a>
+        </li>
+              <li class="nav-item" id="btnPublicidadSideBar"  runat="server" visible="false">
+          <a class="nav-link" href="Publicidad.aspx">
+            <i class="fas fa-fw fa-ad"></i>
+            <span>Administrar publicidad</span></a>
+        </li>
+        <li class="nav-item" id="btnClasificadosSideBar"  runat="server">
+          <a class="nav-link" href="Clasificados.aspx">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Clasificados</span></a>
+        </li>
+          <li>
+                 <div style="width: 100%; display: flex; justify-content: center; flex-direction: row">
+              <asp:AdRotator ID="AdRotator1" runat="server"  Height="100px"  AdvertisementFile="~/publicidades/index.xml"/>
+              </div>
+          </li>
+           
+      </ul>
+      
+
+       
+    
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+         <!--Mensajes de alerta-->
+  <userControl:ModalError id="modalMsg" runat="server"/>
+
+            <%--CONTENIDO DE LA PAGINA--%>
+            <div id="container">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="tittleModalLogout">¿Seguro desea salir?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Seleccione la opción de "Salir" si realmente desea cerrar la sesión actual.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <asp:Button class="btn btn-primary" runat="server" Text="Salir" ID="btnLogoutModal"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+           <!-- Term y Condiciones Modal-->
+    <div class="modal fade" id="TyCModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Terminos y condiciones</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              TERMINOS Y CONDICIONES DE USO
+ACEPTACION DE LAS CONDICIONES GENERALES DE CONTRATACION: Estas son las Condiciones Generales de Contratación que regulan la relación contractual por la que los usuarios de Internet acceden a los contenidos y servicios que GolfTracking S.R.L (En adelante GOLFTRACKING) pone a su disposición a través de los sitios www.golftracking.com.ar . (En adelante LOS SITIOS) El usuario admite haber leído las presentes Condiciones del Registro y Contratación y expresa su adhesión plena y sin reservas a todas y cada una de ellas. Asimismo, debido a que ciertos servicios y contenidos ofrecidos por GOLFTRACKING pueden contener normas específicas que reglamentan y complementan a las presentes Condiciones Generales de Contratación, se recomienda a los usuarios tomar conocimiento específico de ellas. 2. OBJETO: El objeto de las presentes Condiciones Generales de Registro y Contratación es la regulación de la relación entre los usuarios de Internet que accedan a LOS SITIOS y contraten servicios y/o adquieran productos a través de los mismos. 3. PARTES CONTRATANTES: De una parte, GOLFTRACKING S.R.L. con domicilio a estos efectos en la calle Corrientes 785, Rafaela, República Argentina cuya actividad principal consiste en desarrollar para sí o para terceros, por cuenta propia, ajena o asociada a terceros, dentro o fuera del país, toda actividad relacionada con la industria del Golf, contando con los medios y autorizaciones necesarios. Y de otra, cualquier persona física, de 21 años en adelante, o jurídica, destinataria de los contenidos, productos y servicios de GOLFTRACKING a cambio de las contraprestaciones económicas que en cada caso se establecieran, según lo dispuesto en el presente Contrato y en las normas específicas que reglamentan y complementan a las presentes Condiciones Generales de Contratación. 4. CONTENIDOS DE LOS SITIOS: Los contenidos, servicios y productos a los que se refiere el objeto del presente contrato son todos los que se incluyen en LOS SITIOS a los que el usuario accede directamente desde dichas direcciones. Los contenidos a los que el usuario accede mediante enlace desde LOS SITIOS se regirán por sus propias condiciones de registro y contratación. El acceso a cada contenido, servicio o adquisición de productos requerirá o no una contraprestación económica por parte del usuario en los términos establecidos en las propias condiciones de registro y contratación. 5. TARIFAS Y PAGOS: El usuario siempre conocerá el precio y la modalidad de contratación de cada producto o servicio en el momento en el que proceda a su adquisición, viniendo éstos determinados de manera clara en LOS SITIOS. GOLFTRACKING puede optar en cualquier momento por modificar las tarifas o términos de comercialización vigentes. En todo caso, siempre regirán para el usuario el precio y condiciones que vengan determinadas en el momento en que preste su consentimiento al contratar. El usuario que desee contratar el acceso a los contenidos y servicios de pago de GOLFTRACKING deberá abonar la tarifa correspondiente a través de los medios que a tal efecto se le indican en el website en cada momento. El cargo le será cobrado, tal como consta en las condiciones de cada producto, según el medio utilizado para el pago. Con carácter general, los cargos se realizarán al inicio de la contratación que realice el usuario. GOLFTRACKING no asume responsabilidad alguna por el medio de pago elegido por los usuarios. Los medios de pago son elegidos libremente por los usuarios, por lo que cada uno de ellos renuncia a efectuarle a GOLFTRACKING cualquier tipo de reclamo que tuviera algún tipo de relación con el medio de pago elegido. Asimismo, los usuarios reconocen que GOLFTRACKING se reserva el derecho a no brindar los servicios y entregar los productos que no hayan sido efectivamente cobrados, debido a la falta de pago de cualquiera de las empresas prestadoras de los medios de pago. Ello, independientemente que los usuarios hubieren efectivamente realizado el pago a través del medio de pago en cuestión. Si el usuario tiene alguna duda referente al pago, si se han producido modificaciones en el medio de pago empleado, si cree que alguien ha utilizado sus datos de pago indebidamente o que alguien ha accedido al producto que hubiera contratado en LOS SITIOS sin su consentimiento, deberá ponerse en contacto con el Centro de Atención al Cliente a través de los canales que se ponen a su disposición indicados en los distintos websites, según corresponda. 6. RENOVACION AUTOMATICA DE LA CONTRATACION: GOLFTRACKING procederá a renovar automáticamente la contratación de los usuarios. Para evitar contrataciones no deseadas, los usuarios serán convenientemente informados con carácter previo a la renovación. Los usuarios podrán cancelar la renovación de la contratación con anterioridad a que la misma sea efectivizada. 7. CANCELACION DE LA CONTRATACION: El usuario podrá proceder a cancelar unilateralmente la contratación de servicios de GOLFTRACKING que hubiera realizado en LOS SITIOS, en cualquier momento durante la vigencia de la misma, para lo cual deberá comunicar su petición de forma clara e inequívoca al Centro de Atención al Cliente de GOLFTRACKING a través de los canales que a tal efecto se ponen a su disposición en cada uno de LOS SITIOS, según corresponda. No obstante lo anterior, y sin perjuicio de las implicaciones relativas al acceso del usuario a LOS SITIOS y al tratamiento de sus datos de carácter personal, dicha cancelación por el usuario no supondrá en ningún momento el reembolso de los importes que hubiera abonado como contraprestación para el acceso a los contenidos y servicios de GOLFTRACKING en cualquiera de sus modalidades de contratación. Dichos importes tienen carácter de no reembolsables. 8. RESTRICCIONES DE USO: 8.1.- Se permite únicamente un uso personal e intransferible de las claves de acceso a LOS SITIOS. 8.2.- Todos los contenidos de LOS SITIOS pertenecen a GOLFTRACKING o, en su caso, a terceras personas y están protegidos por la legislación sobre propiedad intelectual. Ningún contenido de LOS SITIOS, cualquiera que sea su naturaleza, podrá ser publicado, emitido, retransmitido directa o indirectamente en ningún medio o soporte para uso distinto del estrictamente personal, sin contar con la autorización expresa de GOLFTRACKING. Por tanto, queda terminantemente prohibida su utilización con fines comerciales, su distribución, así como su modificación, alteración o descompilación. Tal como establece el Reglamento general de GOLFTRACKING los servicios y contenidos de LOS SITIOS son para uso exclusivo del usuario registrado y no pueden ser divulgados ni cedidos a terceros. 8.3.- El usuario, en función de su modalidad de contratación, podrá disponer de dichos contenidos e imprimirlos para uso estrictamente personal, no comercial. Al acceder a LOS SITIOS el usuario acepta no vender, no publicar, no distribuir, no retransmitir ni facilitar ningún acceso a los contenidos a terceros. 8.4.- El usuario acepta no utilizar LOS SITIOS para ningún propósito ilegal. GOLFTRACKING se reserva el derecho de restringir o cancelar el acceso a LOS SITIOS si, en su opinión, el usuario utiliza LOS SITIOS para infringir alguna ley, violar derechos de terceros o incumplir las presentes condiciones de contratación. En caso de producirse descargas masivas de contenidos por parte de un usuario, GOLFTRACKING se reserva el derecho de cancelar el acceso a LOS SITIOS de dicho usuario, anular su suscripción, y/o adoptar las acciones legales que estime oportunas. GOLFTRACKING no se responsabiliza de los nombres de usuarios que afectan a personas ajenas, están protegidos por marcas registradas u otras leyes o que resultaren vulgares u ofensivos. 8.5.- LOS SITIOS puede facilitar enlaces, websites o servicios de otras compañías a través de LOS SITIOS, así como facilitar al usuario la descarga de softwares de terceros. El usuario entiende y acepta que LOS SITIOS no controla y no es responsable de estos servicios y productos. 8.6.- Los usuarios aceptan y reconocen que GOLFTRACKING no controla, ni supervisa, ni asume responsabilidad alguna por la calidad, seguridad, características y demás elementos de los productos y/o servicios promocionados u ofrecidos en LOS SITIOS. Asimismo, aceptan y reconocen que GOLFTRACKING no controla, ni supervisa, ni asume responsabilidad acerca de la veracidad y exactitud de la descripción efectuada por aquellos que promocionan u ofrecen sus productos o servicios (en adelante los "Oferentes"), ni acerca del cumplimiento de los requisitos legales para ofrecer y vender los productos o servicios, ni sobre la capacidad y legitimación de los Oferentes para promocionar, ofrecer y/o vender sus bienes o servicios. El material publicitario es propiedad de los solicitantes del espacio. GOLFTRACKING no es responsable del contenido y al respecto rigen las mismas exclusiones que para el material editorial. 9. RESPONSABILIDAD DEL USUARIO: 9.1.- El usuario es responsable de todos los datos y manifestaciones que incluya en los formularios que envíe a GOLFTRACKING así como del contenido de cualquier otra comunicación que emita a éste. El usuario responderá de la veracidad de los datos facilitados, reservándose GOLFTRACKING el derecho a excluir de los servicios registrados a todo usuario que haya facilitado datos falsos, sin perjuicio de las demás acciones que procedan en derecho. 9.2.- Mediante el envío del formulario de contratación correspondiente, el usuario acepta las condiciones de registro y contratación aquí expuestas y se compromete a respetar el uso y las prohibiciones establecidas en las mismas. 9.3.- Asimismo, al enviar el formulario de contratación, el usuario se compromete al pago correspondiente al producto y servicio adquirido. El usuario acepta que, si sus datos de pago no permiten la facturación y/o cobro por parte de GOLFTRACKING, el servicio pedido no le sea otorgado o será cancelado si lo tuviera activo. 9.4.- Sólo podrán contratar las personas físicas mayores de 21 años, en su propio nombre y derecho, o en el de la persona jurídica a la que represente con poder suficiente. 10. RESPONSABILIDAD DE LOS SITIOS: 10.1.- GOLFTRACKING se compromete a poner a disposición del cliente en LOS SITIOS la información necesaria relativa a los productos que ofrece y las condiciones de contratación. 10.2.- El usuario acepta que el acceso a LOS SITIOS y el contenido de dichos sitios es el existente en cada momento. GOLFTRACKING no aceptará reclamación alguna por los contenidos, actualizaciones o conexiones a LOS SITIOS 10.3.- GOLFTRACKING hará todo lo posible por asegurar de buena fe, con todos los medios a su alcance, el acceso al servicio contratado por el usuario. No obstante lo anterior, GOLFTRACKING no se responsabiliza de los fallos técnicos de conexión de red que puedan provocar daños en los equipos, impedir la conexión o limitar total o parcialmente el acceso del usuario a LOS SITIOS. GOLFTRACKING no se responsabilizará de las averías que se produzcan por sus empresas suministradoras de servicio y que puedan impedir el acceso a LOS SITIOS y en ningún caso asegurará el reembolso del importe pagado en caso de reclamación. GOLFTRACKING únicamente responderá por aquellos daños o perjuicios que le puedan ser imputados a la sociedad GOLFTRACKING a título de dolo o culpa grave. En dichos supuestos de responsabilidad de GOLFTRACKING, la indemnización no comprenderá el lucro cesante. 11. RESOLUCION DEL CONTRATO: 11.1.- LOS SITIOS se reservan el derecho a retirar de forma inmediata el acceso al servicio y a los contenidos de pago contratados a aquellos clientes que a criterio de LOS SITIOS contravengan lo dispuesto en las presentes condiciones, sin posibilidad de reembolso en caso de haberse efectuado el pago. Concretamente, LOS SITIOS podrá anular la contratación: a.- cuando el acceso se utilice con fines ilegítimos, incluyendo por tales los enumerados en este contrato y en el Reglamento general de LOS SITIOS b.- cuando los datos de cobro proporcionados en la contratación sean erróneos o imposibiliten la facturación y/o cobro del servicio contratado. c.- en caso de inutilización prolongada y continua o inadecuada de cualquiera de los contenidos o servicios que hubieran sido contratados, indicando en este caso al usuario, claramente los términos en los que aplicará dicha cancelación. d.- en caso de usos fraudulentos del producto o contrarios a la buena fe. 11.2.- El usuario tiene derecho a revocar la contratación de servicios o productos de LOS SITIOS durante el plazo de CINCO (5) días corridos, contados a partir de la fecha en que se entregue el producto o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna. Esta facultad no puede ser dispensada ni renunciada. El usuario deberá comunicar fehacientemente dicha revocación a GOLFTRACKING. Adquisición de productos: Los gastos de devolución son por cuenta de GOLFTRACKING. Para ejercer el derecho de revocación el consumidor deberá poner el producto a disposición de GOLFTRACKING sin haberlo usado y manteniéndolo en el mismo estado en que lo recibió. De verificarse estas condiciones GOLFTRACKING restituirá al usuario los importes percibidos. 12. PROTECCION DE DATOS: VER Políticas de Privacidad del Sitio 13. CONTRATO: El documento del contrato entre el usuario y GOLFTRACKING está compuesto por las presentes condiciones de contratación, el formulario enviado por el usuario con sus datos personales y de pago, y los datos ubicados en GOLFTRACKING que completan el presente documento, prevaleciendo frente a cualquier otro acuerdo verbal o escrito previo o simultáneo. 14. LEY APLICABLE Y JURISDICCION: El presente contrato se interpretará y regirá conforme a la legislación argentina. GOLFTRACKING y el usuario se comprometen a intentar resolver de manera amistosa cualquier desacuerdo que pudiera surgir en el desarrollo del presente Contrato, previamente a acudir a la jurisdicción contemplada.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>         
+          
+                     <!-- Politicas de privacidad Modal-->
+    <div class="modal fade" id="polPrivModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">Politicas de privacidad y seguridad</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+            <div class="modal-body">
+                POLITICAS DE PRIVACIDAD DE LOS SITIOS
+GOLFTRACKING recoge información de sus lectores durante el proceso de registración. Esa información se archiva bajo extrema seguridad en nuestros servidores. Utilizamos dicha información - Para permitirnos procesar, dar validez y verificar las suscripciones. - Para ofrecer a los anunciantes información general (nunca individual) sobre los lectores y las tendencias de uso. - Para el desarrollo de nuevos productos y servicios que satisfagan las necesidades de los lectores. - Para contactarse, vía mail o telefónicamente, con los suscriptores a fin de relavar opiniones sobre el servicio, con motivo de la suscripción y para informar sobre productos y servicios. El suscriptor podrá notificar en cualquier momento su voluntad de no recibir información sobre productos y servicios. Otros hechos importantes GOLFTRACKING mantendrá absoluta confidencialidad de los datos personales brindados por nuestros visitantes. Los servicios de información por correo electrónico que ofrecemos se realizan con el expreso consentimiento de los usuarios. Los lectores pueden editar la información con la que se registraron o suscribieron o cancelar el servicio en cualquier momento. Dadas las condiciones de seguridad que ofrece hoy Internet, debemos tener presente que siempre que divulguemos voluntariamente nuestra información personal online, ésta puede ser recogida y utilizada por otros. Por lo tanto, si bien ponemos nuestro mayor esfuerzo por proteger su información personal, GOLFTRACKING no será responsable por la difusión de los datos personales de nuestros visitantes efectuada por fuentes ajenas a ésta ni será responsable por los daños y perjuicios que la misma genere. Finalmente, nos reservamos el derecho de ponernos en contacto con cualquier suscriptor en cualquier momento por temas relacionados con la renovación de la suscripción u otros problemas o asuntos relacionados con la suscripción, así como por cambios en nuestro acuerdo de suscripción.
+            </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>          
+
+ <div id="divScriptmanager" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+   </div>
+</form>
+
+   
+
+  </body>
+
+</html>
