@@ -12,6 +12,9 @@
                     Dim b As New BE.Busqueda
                     b.id = row("id")
                     b.pagina = row("pagina")
+                    Dim pagina = Split(b.pagina, ".", -1)
+                    b.pagina = pagina(0)
+                    b.url = row("pagina")
                     b.palabra = row("palabra")
                     b.publico = row("publico")
                     lista.add(b)

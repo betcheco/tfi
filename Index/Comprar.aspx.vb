@@ -171,7 +171,7 @@
                 operacion.id_comprador = Session("currentUser").id
                 operacion.id_vendedor = anuncio.usuario_id
                 operacion.id_factura = factura.id
-                BLL.Operacion.crear(operacion)
+                Session("operacionid") = BLL.Operacion.crear(operacion)
                 Dim b As New BE.Bitacora
                 b.usuario = Session("currentUser").email
                 b.criticidad = 3

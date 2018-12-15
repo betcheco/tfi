@@ -69,3 +69,14 @@ D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\Helpers\obj\Debug\Helpers.v
 D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\Helpers\obj\Debug\Helpers.dll
 D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\Helpers\obj\Debug\Helpers.xml
 D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\Helpers\obj\Debug\Helpers.pdb
+C:\Users\PC\Documents\UAI\Source\Helpers\bin\Debug\Helpers.dll
+C:\Users\PC\Documents\UAI\Source\Helpers\bin\Debug\Helpers.pdb
+C:\Users\PC\Documents\UAI\Source\Helpers\bin\Debug\Helpers.xml
+C:\Users\PC\Documents\UAI\Source\Helpers\bin\Debug\IronPdf.dll
+C:\Users\PC\Documents\UAI\Source\Helpers\bin\Debug\IronPdf.xml
+C:\Users\PC\Documents\UAI\Source\Helpers\obj\Debug\Helpers.vbprojResolveAssemblyReference.cache
+C:\Users\PC\Documents\UAI\Source\Helpers\obj\Debug\Helpers.Resources.resources
+C:\Users\PC\Documents\UAI\Source\Helpers\obj\Debug\Helpers.vbproj.GenerateResource.Cache
+C:\Users\PC\Documents\UAI\Source\Helpers\obj\Debug\Helpers.dll
+C:\Users\PC\Documents\UAI\Source\Helpers\obj\Debug\Helpers.xml
+C:\Users\PC\Documents\UAI\Source\Helpers\obj\Debug\Helpers.pdb

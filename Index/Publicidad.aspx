@@ -53,7 +53,9 @@
         <div class="col-sm-8">
             <asp:Label runat="server" for="imgPreview">Imagen:</asp:Label><br />
             <asp:Image ID="imgPreview" runat="server" width="200" accept="image/*"/><br />
-            <asp:FileUpload ID="fuImagen" runat="server" onchange="readURL(this)" CssClass="btn btn-primary form-control-file"/>
+            <asp:FileUpload ID="fuImagen" runat="server" CssClass="btn btn-primary form-control-file"/>
+            <%--onchange="readURL(this)"--%>
+
         </div>
     </div>
 

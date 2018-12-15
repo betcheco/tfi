@@ -10,7 +10,7 @@
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
 
-         <asp:LinkButton id="idpagina"  runat="server" Text='<%# Eval("pagina")%>' Visible="true" href='<%# Eval("pagina")%>'></asp:LinkButton>
+         <asp:LinkButton id="idpagina"  runat="server" Text='<%# Eval("pagina")%>' Visible="true" href='<%# Eval("url")%>'></asp:LinkButton>
             </ItemTemplate>
     </asp:Repeater>
         </div>

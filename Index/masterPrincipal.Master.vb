@@ -201,6 +201,7 @@ Public Class masterPrincipal
         Dim enc = BLL.Encuesta.obtener(Session("encuestaId"))
         Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.EncuestaOpcion)(enc.opciones))
         chartEncuesta.Series(0).Points.DataBindXY(Dvista, "nombre", Dvista, "valor")
+        chartEncuesta.ChartAreas(0).Area3DStyle.Enable3D = True
         chartEncuesta.Series(0).ChartType = SeriesChartType.Pie
 
         divEncuestaChart.Visible = True

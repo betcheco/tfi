@@ -46,6 +46,7 @@ Public Class ABMEncuestas
         Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.EncuestaOpcion)(enc.opciones))
         chartEncuesta.Series(0).Points.DataBindXY(Dvista, "nombre", Dvista, "valor")
         chartEncuesta.Series(0).ChartType = SeriesChartType.Pie
+        chartEncuesta.ChartAreas(0).Area3DStyle.Enable3D = True
 
 
         Me.divChart.Visible = True
@@ -90,6 +91,8 @@ Public Class ABMEncuestas
         Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.EncuestaOpcion)(enc.opciones))
         chartEncuesta.Series(0).Points.DataBindXY(Dvista, "nombre", Dvista, "valor")
         chartEncuesta.Series(0).ChartType = SeriesChartType.Pie
+        chartEncuesta.ChartAreas(0).Area3DStyle.Enable3D = True
+
 
 
         Me.divChart.Visible = True

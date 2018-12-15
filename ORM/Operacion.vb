@@ -67,7 +67,7 @@
         End Try
     End Function
 
-    Shared Function crear(pOperacion As BE.Operacion) As Boolean
+    Shared Function crear(pOperacion As BE.Operacion) As Integer
         Dim d As New DAL.Datos
         Dim h As New Hashtable
         Try
@@ -75,7 +75,7 @@
             h.Add("@id_comprador", pOperacion.id_comprador)
             h.Add("@id_vendedor", pOperacion.id_vendedor)
             h.Add("@id_factura", pOperacion.id_factura)
-            Return d.Escribir("sp_crear_operacion", h)
+            Return d.EscribirInt("sp_crear_operacion", h)
         Catch ex As Exception
             Throw ex
         End Try

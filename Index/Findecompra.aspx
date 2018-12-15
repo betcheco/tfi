@@ -34,6 +34,11 @@
                 </div>
             </div>
    
+
+        <div class="row mt-2 d-flex justify-content-center">
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar Compra" CssClass="btn-danger" />
+            </div>
+    
         <div class="row mt-2 d-flex justify-content-center">
                 <a class="d-block small mt-3" href="Home.aspx">Ir a inicio</a>
             </div>

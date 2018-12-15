@@ -2,12 +2,14 @@
 
 
 Public Class Datos
-
-    Const strConn As String = "Data Source=APU-PC\MSSQL;Initial Catalog=GolfTracking;Integrated Security=True"
+    'ASUS
+    'Const strConn As String = "Data Source=APU-PC\MSSQL;Initial Catalog=GolfTracking;Integrated Security=True"
     'UAI
     'Const strConn As String = "Data Source = .\ SQL_UAI;Initial Catalog=GolfTracking;Integrated Security=True"
     'ofi
     'Const strConn As String = "Data Source=W10ETCHECOB\SQLEXPRESS;Initial Catalog=GolfTracking;Integrated Security=True"
+    'Lenovo
+    Const strConn As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=GolfTracking;Integrated Security=True"
 
 
     Private Conn As New SqlConnection(strConn)

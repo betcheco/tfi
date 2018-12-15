@@ -50,48 +50,48 @@ color:#f0ad4e;
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="card panel-primary text-center no-boder bg-color-green">
                             <div class="panel-body">
-                                <i class="fa fa-chart-bar fa-5x"></i>
-                                <h3>Fichas de opinion</h3>
-                            </div>
-                            <div class="card-footer back-footer-green">
-                                 <asp:LinkButton ID="btnFichas" runat="server" CssClass="btn-outline-success" >Ver</asp:LinkButton>
-                            </div>
+                                <%--<i class="fa fa-chart-bar fa-5x"></i>--%>
+                          <%--      <h3>Fichas de opinion</h3>
+                          --%>  </div>
+                            <%--<div class="card-footer back-footer-green">--%>
+                                 <asp:LinkButton ID="btnFichas" runat="server" CssClass="btn-outline-success" >Fichas de opinion</asp:LinkButton>
+                            <%--</div>--%>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="card panel-primary text-center no-boder bg-color-blue">
                             <div class="panel-body">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                                <h3>Ganancias </h3>
+                           <%--     <i class="fa fa-shopping-cart fa-5x"></i>
+                                <h3>Ganancias </h3>--%>
                             </div>
-                            <div class="card-footer bg-color-dark">
-                                <asp:LinkButton ID="btnGanancias" runat="server" >Ver</asp:LinkButton>
+                            <%--<div class="card-footer bg-color-dark">--%>
+                                <asp:LinkButton ID="btnGanancias" runat="server"  CssClass="btn-outline-info">Ganancias</asp:LinkButton>
 
-                            </div>
+                            <%--</div>--%>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="card panel-primary text-center no-boder bg-color-red">
-                            <div class="panel-body">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>Tiempo de respuesta</h3>
+                           <div class="panel-body">
+                                 <%--<i class="fa fa fa-comments fa-5x"></i>
+                                <h3>Tiempo de respuesta</h3>--%>
                             </div>
-                            <div class="card-footer back-footer-red">
-                               <asp:LinkButton ID="btnChats" runat="server" >Ver</asp:LinkButton>
+                            <%--<div class="card-footer back-footer-red">--%>
+                               <asp:LinkButton ID="btnChats" runat="server"  CssClass="btn-outline-danger">Tiempo de respuesta</asp:LinkButton>
 
-                            </div>
+                            <%--</div>--%>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="card panel-primary text-center no-boder bg-color-brown">
                             <div class="panel-body">
-                                <i class="fa fa-users fa-5x"></i>
-                                <h3>Encuestas </h3>
+                              <%--  <i class="fa fa-users fa-5x"></i>
+                                <h3>Encuestas </h3>--%>
                             </div>
-                            <div class="card-footer back-footer-brown">
-                                 <asp:LinkButton ID="btnEncuestas" runat="server" >Ver</asp:LinkButton>
+                            <%--<div class="card-footer back-footer-brown">--%>
+                                 <asp:LinkButton ID="btnEncuestas" runat="server"  CssClass="btn-outline-warning" >Encuestas</asp:LinkButton>
 
-                            </div>
+                            <%--</div>--%>
                         </div>
                     </div>
                 </div>

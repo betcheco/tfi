@@ -34,9 +34,29 @@ Public Class Findecompra
         Dim enc = BLL.Encuesta.obtener(ViewState("encuestaId"))
         Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.EncuestaOpcion)(enc.opciones))
         chartEncuesta.Series(0).Points.DataBindXY(Dvista, "nombre", Dvista, "valor")
+        chartEncuesta.ChartAreas(0).Area3DStyle.Enable3D = True
         chartEncuesta.Series(0).ChartType = DataVisualization.Charting.SeriesChartType.Pie
 
         divEncuestaChart.Visible = True
         divEncuestaPreguntas.Visible = False
+    End Sub
+
+    Protected Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Dim operacion As New BE.Operacion
+        operacion.id = Session("operacionid")
+        operacion.estado = "CANCELACION"
+        Try
+            If BLL.Operacion.setEstado(operacion) Then
+                Dim bitacora As New BE.Bitacora
+                bitacora.usuario = Session("currentUser").email
+                bitacora.evento = "Cancelacion de compra"
+                bitacora.criticidad = 2
+                BLL.Bitacora.RegistarEvento(bitacora)
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Cancelacion de compra", "Su pedido de cancelacion ya fue solicitado, en breve enviaremos la respectiva nota de credito. Muchas gracias", "Home.aspx")
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

@@ -16,7 +16,7 @@
         End Try
     End Function
 
-    Public Shared Function crear(pOperacion As BE.Operacion) As Boolean
+    Public Shared Function crear(pOperacion As BE.Operacion) As Integer
         Try
             Return ORM.Operacion.crear(pOperacion)
         Catch ex As Exception

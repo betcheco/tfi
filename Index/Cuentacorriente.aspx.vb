@@ -15,8 +15,9 @@
 
 
         Else
-            Me.GridView1.DataSource = ViewState("listadoCuentaCorriente")
-            Me.GridView1.DataBind()
+            actualizar()
+            'Me.GridView1.DataSource = ViewState("listadoCuentaCorriente")
+            'Me.GridView1.DataBind()
         End If
 
         AddHandler ModalRating.OnAccept, AddressOf calificar
@@ -261,10 +262,11 @@
                 Case "Message"
                     Session("chatAdmin") = BLL.Usuario.CheckPermiso(Session("currentUser"), "btnAdminCuentaCorrienteSideBar")
                     Response.Redirect("Chat.aspx?operacion=" & i)
-                Case "State"
+                Case "ChangeState"
                     'Muestro modal cambio estado
                     ViewState("operacionId") = i
-                    ModalEstado.Show(GridView1.Rows(i).Cells(7).Text)
+                    Session("operacionId") = i
+                    ModalEstado.Show()
                 Case "AskCancel"
                     ViewState("operacionId") = i
                     solicitarCancelacion()

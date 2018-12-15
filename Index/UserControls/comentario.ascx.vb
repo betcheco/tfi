@@ -13,18 +13,25 @@
         'idModal.Value = comentario.id
         textComment.InnerText = comentario.comentario
         textRespuesta.InnerText = comentario.respuesta
-        If comentario.respuesta = "" And Session("currentUser").id = a.usuario_id Then
-            btnResponder.Visible = True
+        If Not Session("currentUser") Is Nothing Then
+            If comentario.respuesta = "" And Session("currentUser").id = a.usuario_id Then
+                btnResponder.Visible = True
+            Else
+                btnResponder.Visible = False
+            End If
+            For Each rol In Session("currentUser").roles
+                For Each permiso In rol.permisos
+                    If permiso.nombre = "btnEliminarComentario" Then
+                        btnEliminar.Visible = True
+                    End If
+                Next
+            Next
         Else
             btnResponder.Visible = False
         End If
-        For Each rol In Session("currentUser").roles
-            For Each permiso In rol.permisos
-                If permiso.nombre = "btnEliminarComentario" Then
-                    btnEliminar.Visible = True
-                End If
-            Next
-        Next
+
+
+
 
 
     End Sub

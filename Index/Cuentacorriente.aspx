@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/masterPrincipal.Master" CodeBehind="Cuentacorriente.aspx.vb" Inherits="Index.Cuentacorriente" %>
 
 <%@ Register Src="~/UserControls/ModalRating.ascx" TagPrefix="uc1" TagName="ModalRating" %>
-<%@ Register Src="~/UserControls/ModalEstado.ascx" TagPrefix="uc1" TagName="ModalEstado" %>
+<%@ Register Src="~/UserControls/ModalEstado.ascx" TagPrefix="uc2" TagName="ModalEstado" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <%-- <asp:ScriptManager runat="server"></asp:ScriptManager>--%>
     <h4 id="sinresultados" class=" alert-info" runat="server" visible="false">No se encontraron resultados</h4>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-light table-hover" AllowPaging="True">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-light table-hover" AllowPaging="True" >
          <Columns>
             <asp:ButtonField CommandName="ViewPdf" ShowHeader="True" Text='<i class="far fa-file-pdf"></i>'>
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="35px" />
@@ -73,5 +73,5 @@
             </div>
 
     <uc1:ModalRating runat="server" id="ModalRating" />
-    <uc1:ModalEstado runat="server" id="ModalEstado" />
+    <uc2:ModalEstado runat="server" id="ModalEstado" />
 </asp:Content>  

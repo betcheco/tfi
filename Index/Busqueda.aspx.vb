@@ -37,6 +37,7 @@ Public Class Busqueda
                 For Each res In busqueda
                     If res.publico Then
                         listaAMostrar.Add(res)
+
                     Else
                         If BLL.Usuario.CheckPermiso(Session("currentUser"), res.permiso) Then
                             listaAMostrar.Add(res)

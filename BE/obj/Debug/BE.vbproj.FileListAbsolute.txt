@@ -70,3 +70,12 @@ D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\BE\obj\Debug\BE.vbproj.Gene
 D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\BE\obj\Debug\BE.dll
 D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\BE\obj\Debug\BE.xml
 D:\UAI\TFI\Source\20181120_GolfTracking\GolfTracking\BE\obj\Debug\BE.pdb
+C:\Users\PC\Documents\UAI\Source\BE\bin\Debug\BE.dll
+C:\Users\PC\Documents\UAI\Source\BE\bin\Debug\BE.pdb
+C:\Users\PC\Documents\UAI\Source\BE\bin\Debug\BE.xml
+C:\Users\PC\Documents\UAI\Source\BE\obj\Debug\BE.vbprojResolveAssemblyReference.cache
+C:\Users\PC\Documents\UAI\Source\BE\obj\Debug\BE.Resources.resources
+C:\Users\PC\Documents\UAI\Source\BE\obj\Debug\BE.vbproj.GenerateResource.Cache
+C:\Users\PC\Documents\UAI\Source\BE\obj\Debug\BE.dll
+C:\Users\PC\Documents\UAI\Source\BE\obj\Debug\BE.xml
+C:\Users\PC\Documents\UAI\Source\BE\obj\Debug\BE.pdb

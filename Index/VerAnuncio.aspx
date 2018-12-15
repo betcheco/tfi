@@ -14,8 +14,7 @@
               <h4 runat="server" id="lblPrecio"></h4>
               <p class="card-text" id="lblDescCorta" runat="server"></p>
               <asp:Button ID="btnComprar" runat="server" text="Comprar" CssClass=" card-text btn btn-primary btn-sm"/>
-              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-              4.0 stars
+             
             </div>
           </div>
           <!-- /.card -->

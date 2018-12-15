@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class Noticia
     
     '''<summary>
-    '''img control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents img As Global.System.Web.UI.WebControls.Image
-    
-    '''<summary>
     '''dvNombreProducto control.
     '''</summary>
     '''<remarks>
@@ -39,6 +30,15 @@ Partial Public Class Noticia
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblNombre As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''img control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents img As Global.System.Web.UI.WebControls.Image
     
     '''<summary>
     '''dvDescripcion control.

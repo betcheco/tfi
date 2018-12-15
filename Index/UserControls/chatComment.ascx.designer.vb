@@ -23,6 +23,24 @@ Partial Public Class chatComment
     Protected WithEvents textComment As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
+    '''fpregunta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fpregunta As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''respuesta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents respuesta As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''textRespuesta control.
     '''</summary>
     '''<remarks>
@@ -30,6 +48,15 @@ Partial Public Class chatComment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents textRespuesta As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''frespuesta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents frespuesta As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''inputRespuesta control.

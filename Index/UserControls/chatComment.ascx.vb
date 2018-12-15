@@ -12,11 +12,22 @@
         id.Value = chat.id
         'idModal.Value = comentario.id
         textComment.InnerText = chat.pregunta
+        fpregunta.InnerText = chat.fpregunta
         textRespuesta.InnerText = chat.respuesta
-        If chat.respuesta = "" And Session("chatAdmin") Then
-            btnResponder.Visible = True
+        frespuesta.InnerText = chat.frespuesta
+        If Session("chatAdmin") Then
+            Me.respuesta.Visible = True
+            If chat.respuesta = "" Then
+                btnResponder.Visible = True
+            Else
+                btnResponder.Visible = False
+
+            End If
         Else
-            btnResponder.Visible = False
+            If chat.respuesta = "" Then
+                Me.respuesta.Visible = False
+            End If
+
         End If
     End Sub
 

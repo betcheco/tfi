@@ -79,3 +79,12 @@ D:\TFI\20181122_GolfTracking\GolfTracking\DAL\obj\Debug\DAL.vbproj.GenerateResou
 D:\TFI\20181122_GolfTracking\GolfTracking\DAL\obj\Debug\DAL.dll
 D:\TFI\20181122_GolfTracking\GolfTracking\DAL\obj\Debug\DAL.xml
 D:\TFI\20181122_GolfTracking\GolfTracking\DAL\obj\Debug\DAL.pdb
+C:\Users\PC\Documents\UAI\Source\DAL\bin\Debug\DAL.dll
+C:\Users\PC\Documents\UAI\Source\DAL\bin\Debug\DAL.pdb
+C:\Users\PC\Documents\UAI\Source\DAL\bin\Debug\DAL.xml
+C:\Users\PC\Documents\UAI\Source\DAL\obj\Debug\DAL.vbprojResolveAssemblyReference.cache
+C:\Users\PC\Documents\UAI\Source\DAL\obj\Debug\DAL.Resources.resources
+C:\Users\PC\Documents\UAI\Source\DAL\obj\Debug\DAL.vbproj.GenerateResource.Cache
+C:\Users\PC\Documents\UAI\Source\DAL\obj\Debug\DAL.dll
+C:\Users\PC\Documents\UAI\Source\DAL\obj\Debug\DAL.xml
+C:\Users\PC\Documents\UAI\Source\DAL\obj\Debug\DAL.pdb

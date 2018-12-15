@@ -8,6 +8,7 @@
 
     Protected Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         Me.Visible = False
+        Session.Remove("operacionId")
         RaiseEvent OnAccept(sender, ddlEstados.SelectedValue)
     End Sub
 
@@ -16,7 +17,8 @@
 
     End Sub
 
-    Public Sub Show(estadoActual As String)
+    Public Sub Show()
+        Dim estadoActual = BLL.Operacion.obtener(Session("operacionId")).estado
         Select Case estadoActual
             Case "RECIBIDO"
                 ddlEstados.Items.Remove("ENVIADO")

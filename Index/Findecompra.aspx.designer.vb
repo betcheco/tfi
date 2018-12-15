@@ -66,4 +66,13 @@ Partial Public Class Findecompra
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chartEncuesta As Global.System.Web.UI.DataVisualization.Charting.Chart
+    
+    '''<summary>
+    '''btnCancelar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
 End Class

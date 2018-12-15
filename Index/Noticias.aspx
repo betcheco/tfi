@@ -9,13 +9,13 @@
     padding-bottom: 3em;
 }
         .article-left {
-    width: 30%;
+    width: 27%;
    float: left;
     margin-right: 3%;
 }
         .article-right {
     float: right;
-    width: 67%;
+    width: 60%;
 }
     </style>
   
@@ -52,14 +52,14 @@
 						</div>
 						<div class="article-right">
 							<div class="article-title">
-								<asp:label runat="server" DataFormatString="{0:dd/MM/yyyy}"><%# Eval("fecha_desde")%></asp:label>
+								<asp:label runat="server" DataFormatString="{0:dd/MM/yyyy}"><%#String.Format("{0:dd/MM/yyyy}", Eval("fecha_desde"))%></asp:label>
                                 </div>
                                 <div class="article-title">
 								<h5 class="title" href="single.html"> <%# Eval("titulo")%></h5>
 							</div>
 							<div class="article-text">
 								<p>'<%#Eval("desc_corta")%>'.</p>
-								<a href="single.html"><img src="images/more.png" alt=""></a>
+								<a ><img src="images/more.png" alt=""></a>
 								<div class="clearfix"></div>
                                 <asp:Label ID="hdlblID" runat="server" Visible="false" Text='<%# Eval("id")%>'></asp:Label>
                                 <asp:Button CssClass="btn btn-outline-info" ID="btnVer" runat="server" Height="25px" Style="font-size: 12px; text-align: center;" Text="Saber Mas" OnCommand="ValidarCommand" CommandName="ShowNoticia" CommandArgument='<%# Eval("id")%>' />

@@ -13,11 +13,16 @@
                     lblPrecio.InnerText = "$" & anuncio.precio
                     descLarga.InnerText = anuncio.desc_larga
                     img.ImageUrl = anuncio.imagen
-                    If Session("currentUser").id <> anuncio.usuario_id Then
-                        btnComentar.Visible = True
+                    If Not Session("currentUser") Is Nothing Then
+                        If Session("currentUser").id <> anuncio.usuario_id Then
+                            btnComentar.Visible = True
+                        Else
+                            btnComentar.Visible = False
+                        End If
                     Else
                         btnComentar.Visible = False
                     End If
+
 
 
                     ''Prueba comentario

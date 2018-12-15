@@ -81,10 +81,13 @@ Public Class Reportes
             Me.divPreguntaTiempoDeRespuesta.InnerHtml = "Tiempo promedio de atencion: " + avg.ToString("N2") + " minutos"
 
             Dim Dvista As New System.Data.DataView(table)
+
+
             chartTiempoDeRespuesta.Series(0).Points.DataBindXY(Dvista, "Minutos", Dvista, "value")
             chartTiempoDeRespuesta.Series(0).ChartType = SeriesChartType.Column
             chartTiempoDeRespuesta.ChartAreas("ChartArea1").AxisX.Title = "Tiempo de respuesta (Minutos)"
             chartTiempoDeRespuesta.ChartAreas("ChartArea1").AxisY.Title = "Consultas"
+            chartTiempoDeRespuesta.ChartAreas("ChartArea1").Area3DStyle.Enable3D = True
         End If
 
         Me.divTiempoDeRespuesta_Content.Visible = True
@@ -131,7 +134,9 @@ Public Class Reportes
 
         Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.EncuestaOpcion)(enc.opciones))
         chartEncuesta.Series(0).Points.DataBindXY(Dvista, "nombre", Dvista, "valor")
-        chartEncuesta.Series(0).ChartType = SeriesChartType.Pie
+        chartEncuesta.Series(0).ChartType = SeriesChartType.Doughnut
+        chartEncuesta.ChartAreas(0).Area3DStyle.Enable3D = True
+
 
         Me.divEncuestas_Content.Visible = True
 
@@ -147,6 +152,8 @@ Public Class Reportes
         Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.EncuestaOpcion)(enc.opciones))
         chartFichaDeOpinion.Series(0).Points.DataBindXY(Dvista, "nombre", Dvista, "valor")
         chartFichaDeOpinion.Series(0).ChartType = SeriesChartType.Pie
+        chartEncuesta.ChartAreas(0).Area3DStyle.Enable3D = True
+
 
         Me.divFichasDeOpinion_Content.Visible = True
 
@@ -169,6 +176,7 @@ Public Class Reportes
             ChartGanancias.Series(0).ChartType = SeriesChartType.Area
             ChartGanancias.ChartAreas("ChartAreaGanancias").AxisX.Title = "Mes"
             ChartGanancias.ChartAreas("ChartAreaGanancias").AxisY.Title = "$"
+            ChartGanancias.ChartAreas("ChartAreaGanancias").Area3DStyle.Enable3D = True
 
             Me.gridGanacias.DataSource = BLL.Reporte.listadoYtd()
             Me.gridGanacias.DataBind()
@@ -196,6 +204,7 @@ Public Class Reportes
             ChartGanancias.Series(0).ChartType = SeriesChartType.Area
             ChartGanancias.ChartAreas("ChartAreaGanancias").AxisX.Title = "Fecha"
             ChartGanancias.ChartAreas("ChartAreaGanancias").AxisY.Title = "$"
+            ChartGanancias.ChartAreas("ChartAreaGanancias").Area3DStyle.Enable3D = True
 
             Me.gridGanacias.DataSource = BLL.Reporte.listadoMensual(CInt(ddlMes.SelectedValue))
             Me.gridGanacias.DataBind()
@@ -224,6 +233,7 @@ Public Class Reportes
                     ChartGanancias.Series(0).ChartType = SeriesChartType.Area
                     ChartGanancias.ChartAreas("ChartAreaGanancias").AxisX.Title = "Fecha"
                     ChartGanancias.ChartAreas("ChartAreaGanancias").AxisY.Title = "$"
+                    ChartGanancias.ChartAreas("ChartAreaGanancias").Area3DStyle.Enable3D = True
 
                     Me.gridGanacias.DataSource = BLL.Reporte.ListadoFecha(Me.dpDesdeGanancias.Text, Me.dpHastaGanancias.Text)
                     Me.gridGanacias.DataBind()

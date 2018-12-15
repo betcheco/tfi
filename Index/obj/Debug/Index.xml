@@ -662,6 +662,15 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:Index.Findecompra._btnCancelar">
+<summary>
+btnCancelar control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:Index.ForgotPassword._success">
 <summary>
 success control.
@@ -1282,15 +1291,6 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:Index.Noticia._img">
-<summary>
-img control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
 <member name="F:Index.Noticia._dvNombreProducto">
 <summary>
 dvNombreProducto control.
@@ -1303,6 +1303,15 @@ To modify move field declaration from designer file to code-behind file.
 <member name="F:Index.Noticia._lblNombre">
 <summary>
 lblNombre control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Index.Noticia._img">
+<summary>
+img control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -1741,9 +1750,36 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:Index.chatComment._fpregunta">
+<summary>
+fpregunta control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Index.chatComment._respuesta">
+<summary>
+respuesta control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:Index.chatComment._textRespuesta">
 <summary>
 textRespuesta control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:Index.chatComment._frespuesta">
+<summary>
+frespuesta control.
 </summary>
 <remarks>
 Auto-generated field.

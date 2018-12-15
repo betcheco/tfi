@@ -4,8 +4,8 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'hidePublicUser()
         If Not (Page.IsPostBack) Then
-            If Not Session("currentUser") Is Nothing Then
-                Try
+            'If Not Session("currentUser") Is Nothing Then
+            Try
                     Dim listCat As New List(Of BE.Categoria)
                     Dim c As New BE.Categoria
                     c.id = 0
@@ -27,7 +27,7 @@
                     TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! " & ex.Message, "Home.aspx")
                 End Try
 
-            End If
+            '    End If
 
         End If
     End Sub
