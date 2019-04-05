@@ -1633,18 +1633,18 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:Index.Reportes._dpHastaGanancias">
+<member name="F:Index.Reportes._btnFiltrarGanancias">
 <summary>
-dpHastaGanancias control.
+btnFiltrarGanancias control.
 </summary>
 <remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:Index.Reportes._btnFiltrarGanancias">
+<member name="F:Index.Reportes._dpHastaGanancias">
 <summary>
-btnFiltrarGanancias control.
+dpHastaGanancias control.
 </summary>
 <remarks>
 Auto-generated field.

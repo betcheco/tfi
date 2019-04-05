@@ -205,22 +205,25 @@ color:#f0ad4e;
          <h3>Ganancias</h3>
         <div class="row">           
             <div class="col-6">
-             <div class="card">
+             <div class="d-inline">
                  <h6 class="card-title">Filtrar por fecha</h6>
-                 <div class="d-inline-flex">
-                     <asp:Label runat="server" for="dpDesdeGanancias">Desde:</asp:Label>
-                     <asp:TextBox ID="dpDesdeGanancias" runat="server" TextMode="Date"></asp:TextBox>
-                     <asp:Label runat="server" for="dpHastaGanancias" CssClass="pl-1">Hasta:</asp:Label>
-                     <asp:TextBox ID="dpHastaGanancias" runat="server" TextMode="Date"></asp:TextBox>
-                     <asp:Button class="btn btn-primary mt-1 mx-2" ID="btnFiltrarGanancias" runat="server" Text="Filtrar" formnovalidate />
+                 <div class="d-inline">
+                     <asp:Label runat="server" for="dpDesdeGanancias" class="d-inline-block">Desde:</asp:Label>
+                     <asp:TextBox ID="dpDesdeGanancias" runat="server" TextMode="Date"></asp:TextBox>                 
+                     <asp:Button class="btn btn-primary mt-1 mx-1" ID="btnFiltrarGanancias" runat="server" Text="Filtrar" formnovalidate />
                  </div>
+                  <div >
+                     <asp:Label runat="server" for="dpHastaGanancias" class="d-inline-block">Hasta:</asp:Label>
+                     <asp:TextBox ID="dpHastaGanancias" runat="server" TextMode="Date" CssClass="mx-1"></asp:TextBox>
+                  </div>
              </div>
          </div>
+           
             <%--<div class="col-6">--%>
              <div class="col-md-3 col-sm-12 col-xs-12">
-                 <div class="card">
+                 <div>
                   <h6>Reporte mensual</h6>
-                     <div class="d-inline-flex" >
+                     <div class="d-inline" >
              <label for="ddlMes" class="ml-2">Mes:</label>
              <asp:DropDownList ID="ddlMes" runat="server" Width="60px">
                  <asp:ListItem Value="1">Ene</asp:ListItem>
@@ -236,14 +239,14 @@ color:#f0ad4e;
                  <asp:ListItem Value="11">Nov</asp:ListItem>
                  <asp:ListItem Value="12">Dic</asp:ListItem>
                 </asp:DropDownList>
-                 <asp:Button class="btn btn-primary mt-1 ml-1" ID="btnMensualGanancias" runat="server" Text="Ver Reporte" formnovalidate />
+                 <asp:Button class="btn small btn-primary mt-1 ml-1" ID="btnMensualGanancias" runat="server" Text="Ver Reporte" formnovalidate />
                          </div>
                      </div>
             </div>  
               <div class="col-md-3 col-sm-12 col-xs-12">
-                 <div class="card">
+                 <div>
                  <h6 >Reporte anual:</h6>
-             <asp:Button class="btn btn-primary mt-1" ID="btnGananciasYTD" runat="server" Text="YTD" formnovalidate />
+             <asp:Button class="btn btn-primary mt-1 align-content-center" ID="btnGananciasYTD" runat="server" Text="YTD" formnovalidate />
              </div>
                </div>   
          <%--</div>--%>
