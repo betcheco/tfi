@@ -12,6 +12,7 @@
         $(document).ready(function () {
             var validaTarj = function (e) {
                 var val = $(this).val().toString();
+                var btn = $('[id$=btnConfirmarPago]');
 
                 var esTarjeta = false;
                 /* VALIDACION DE TIPO */
@@ -32,8 +33,18 @@
                 }
                 if (esTarjeta) {
                     $("#imgCard").css("display", "block");
+                    $("#divConfirmarPago").css("display", "block");
+                    $("#divErrorTarjeta").css("display", "none");
+                    btn.removeAttr("disabled");
+                    
+                   
                 } else {
-                    $("#imgCard").css("display", "none");
+                    $("#imgCard").css("display", "block");
+                    $("#imgCard").attr("src", "img/cards/error.png");
+                   // $("#divConfirmarPago").css("display", "none");
+                    $("#divErrorTarjeta").css("display", "block");
+                    btn.attr("disabled", "true");
+                    
                 }
             }
             $("#txtNroTarjeta").change(validaTarj);
@@ -99,7 +110,8 @@
                     </div>
                     <div class="col-3">
                         <asp:Label runat="server" for="imgCard">&nbsp</asp:Label>
-                         <img id="imgCard" style="height: 5vh; display: block; margin-top: 0.5vh; border: thin solid; display:none"/>
+                         <img id="imgCard" style="height: 5vh; display: block; margin-top: 0.5vh; display:none"/>
+                        <p id="errorText" style="color:red; display:none;">El numero de tarjeta es invalido</p>
                         </div>
                 </div>
                 <div class="row">
@@ -124,8 +136,13 @@
                         <asp:TextBox ID="txtDNI" ClientIDMode="static" runat="server" class="form-control" required></asp:TextBox>
                     </div>
                 </div>
+                   <div class="row">
+                    <div class="col-12 align-content-center" id="divErrorTarjeta" display="none">
+                       
+                    </div>
+                </div>
                 <div class="row">
-                    <div class="col-12 align-content-center">
+                    <div class="col-12 align-content-center" id="divConfirmarPago">
                         <asp:Button class="btn btn-primary mt-4" ID="btnConfirmarPago" runat="server" Text="Confirmar pago" formnovalidate="true" />
                     </div>
                 </div>

@@ -115,6 +115,11 @@
                 TryCast(Me.Master, masterPrincipal).mostrarMesaje("", "Número de documento no válido", Nothing)
                 Return
             End If
+            'Valido si la tarjeta esta en la lista negra
+            If tarjetaEnListaNegra(txtNroTarjeta.Text) Then
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error de procesando su tarjeta", "No pudimos procesar el pago con su tarjeta, por favor comuniquese con el banco emisor de su tarjeta", Nothing)
+                Return
+            End If
         End If
 
         Dim anuncio As New BE.Anuncio
@@ -189,4 +194,23 @@
 
 
     End Sub
+
+
+    Function tarjetaEnListaNegra(nroTarjeta As String) As Boolean
+        Dim resultado As Boolean
+        Dim listaNegra As New List(Of String)
+        'resultado = False
+        listaNegra.Add("4567-1234-1234-1234")
+        MsgBox(nroTarjeta)
+        If listaNegra.Contains(nroTarjeta) Then
+            resultado = True
+        Else
+            resultado = False
+        End If
+
+
+        Return resultado
+
+    End Function
+
 End Class

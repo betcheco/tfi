@@ -255,7 +255,7 @@ color:#f0ad4e;
      
        
         <div id="divGanancias_Content" class="row" runat="server">
-            <asp:Chart EnableViewState="true" runat="server" CssClass="col-10" id="ChartGanancias">
+            <asp:Chart EnableViewState="true" runat="server" CssClass="align-content-center" id="ChartGanancias">
     <Series>
         <asp:Series Name="SeriesGanancias"></asp:Series>
     </Series>
