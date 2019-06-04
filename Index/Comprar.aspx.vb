@@ -201,7 +201,9 @@
         Dim listaNegra As New List(Of String)
         'resultado = False
         listaNegra.Add("4567-1234-1234-1234")
-        MsgBox(nroTarjeta)
+        listaNegra.Add("5123-1234-1234-1234")
+        listaNegra.Add("3456-1234-1234-1234")
+        ' MsgBox(nroTarjeta)
         If listaNegra.Contains(nroTarjeta) Then
             resultado = True
         Else
