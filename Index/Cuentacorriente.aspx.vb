@@ -48,6 +48,8 @@
                 nc.usuario = us
                 nc.monto = 0
                 nc.concepto = "Factura 00" & factura.id
+                'add factura id
+                nc.facturaid = factura.id
                 If BLL.NotaCredito.Crear(nc) Then
                     Helpers.sendMail.generarComprobante(
              "NOTA DE CRÉDITO",

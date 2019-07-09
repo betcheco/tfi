@@ -23,7 +23,7 @@ Public Class Reportes
 
                     Me.gridGanacias.Visible = False
                     Me.btnVerListado.Text = "Ver listado"
-                    Session("verlistadoganancias") = False
+                    Session("verlistadoganancias") = True
                 Catch ex As Exception
                     TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "ups! " & ex.Message, Nothing)
                 End Try

@@ -51,8 +51,8 @@
         Try
             Dim result As New Double
             result = 0
-            For Each monto In lista
-                result += monto.monto
+            For Each item In lista
+                result += item.monto
             Next
             Return result
         Catch ex As Exception

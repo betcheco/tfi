@@ -38,10 +38,13 @@
         If (e.CommandName = "AddCart") Then
             'e.CommandArgument
             'MsgBox("Precio" + e.CommandArgument.ToString)
-
-            Response.Redirect("Comprar.aspx?anuncio=" & e.CommandArgument.ToString)
+            If Not Session("currentUser") Is Nothing Then
+                Response.Redirect("Comprar.aspx?anuncio=" & e.CommandArgument.ToString)
+            Else
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Necesita estar logueado para acceder", "Clasificados.aspx")
+            End If
         End If
-        If (e.CommandName = "CheckProduct") Then
+            If (e.CommandName = "CheckProduct") Then
             'btnComparar.Visible = True
             MsgBox("Comparar " & e.CommandArgument.ToString)
             MsgBox(sender.ToString())
