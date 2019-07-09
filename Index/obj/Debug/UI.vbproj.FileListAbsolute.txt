@@ -705,3 +705,5 @@ C:\Users\PC\Documents\UAI\Source\Index\obj\Debug\UI.vbproj.GenerateResource.Cach
 C:\Users\PC\Documents\UAI\Source\Index\obj\Debug\Index.dll
 C:\Users\PC\Documents\UAI\Source\Index\obj\Debug\Index.xml
 C:\Users\PC\Documents\UAI\Source\Index\obj\Debug\Index.pdb
+C:\Users\PC\Documents\UAI\Source\Index\bin\ImageResizer.dll
+C:\Users\PC\Documents\UAI\Source\Index\bin\ImageResizer.xml

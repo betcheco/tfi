@@ -1,4 +1,7 @@
-﻿Public Class PublicarAnuncio
+﻿Imports System.Drawing
+Imports ImageResizer
+
+Public Class PublicarAnuncio
     Inherits System.Web.UI.Page
     'Dim path As String = Server.MapPath("~/backups/")
     Dim path As String = Server.MapPath("./img/")
@@ -38,12 +41,12 @@
                             '    Session("modAnuncio") = modAnuncio
                             'Else
                             Response.Redirect("Home.aspx")
-                                End If
-                            End If
-
-                        Else
-                            Session("modficarAnuncio") = False
+                        End If
                     End If
+
+                Else
+                    Session("modficarAnuncio") = False
+                End If
                 'TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Debe auntenticarse para acceder", "Home.aspx")
                 'End If
             Catch ex As Exception
@@ -62,9 +65,15 @@
                         If Not Session("modficarAnuncio") Then
                             If imgUpload.HasFile Then
                                 Try
-
-                                    imgUpload.PostedFile.SaveAs(path &
-                 imgUpload.FileName)
+                                    'Redimensionamiento de imagen
+                                    Dim bmp As New Bitmap(imgUpload.PostedFile.InputStream)
+                                    Dim newImage = New Bitmap(200, 200)
+                                    Using g = Graphics.FromImage(newImage)
+                                        g.DrawImage(bmp, 0, 0, 200, 200)
+                                    End Using
+                                    newImage.Save(path & imgUpload.FileName)
+                                    '                   imgUpload.PostedFile.SaveAs(path &
+                                    'imgUpload.FileName)
                                     anuncio.titulo = inputTitulo.Value
                                     anuncio.desc_corta = inputDescCorta.Value
                                     anuncio.desc_larga = inputDescLarga.Value
