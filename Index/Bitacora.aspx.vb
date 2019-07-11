@@ -87,23 +87,23 @@
                                 Catch ex As Exception
                                     TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! " & ex.Message, Nothing)
                                 End Try
-                                'filtro fecha + criticidad
-                                If (inputCriticidad.SelectedValue <> 0) And (inputDateFrom.Text <> "") And (inputDateTo.Text <> "") And (userList.SelectedValue = "Todos") Then
-                                    Try
-                                        Session("filtroFdesde") = fdesde
-                                        Session("filtroFhasta") = fhasta
-                                        Session("filtroUser") = Nothing
-                                        Session("filtroCriticidad") = inputCriticidad.SelectedValue
-                                        Actualizar()
-                                    Catch ex As Exception
-                                        TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! " & ex.Message, Nothing)
-                                    End Try
-                                End If
+
 
                             End If
 
                         End If
-
+                        'filtro fecha + criticidad
+                        If (inputCriticidad.SelectedValue <> 0) And (inputDateFrom.Text <> "") And (inputDateTo.Text <> "") And (userList.SelectedValue = "Todos") Then
+                            Try
+                                Session("filtroFdesde") = CType(inputDateFrom.Text, Date)
+                                Session("filtroFhasta") = CType(inputDateTo.Text, Date)
+                                Session("filtroUser") = Nothing
+                                Session("filtroCriticidad") = inputCriticidad.SelectedValue
+                                Actualizar()
+                            Catch ex As Exception
+                                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! " & ex.Message, Nothing)
+                            End Try
+                        End If
                     End If
                     'Filtro solo usuario
                     If (inputCriticidad.SelectedValue = 0) And (inputDateFrom.Text = "") And (inputDateTo.Text = "") And (userList.SelectedValue <> "Todos") Then
@@ -194,7 +194,14 @@
         End If
         If Not fdesde > fhasta Then
             Try
-                Dim listaBitacora = BLL.Bitacora.ConsultarBItacora(fdesde, fhasta, Session("filtroCriticidad"), Session("filtroUser"))
+                Dim user As String
+                If Not Session("filtroUser") Is Nothing Then
+                    user = Helpers.Hasher.Encriptar(Session("filtroUser"))
+                Else
+                    user = Session("filtroUser")
+                End If
+
+                Dim listaBitacora = BLL.Bitacora.ConsultarBItacora(fdesde, fhasta, Session("filtroCriticidad"), user)
                 Me.bitacoraGrid.DataSource = listaBitacora
                 Me.bitacoraGrid.DataBind()
                 If listaBitacora.Count = 0 Then
