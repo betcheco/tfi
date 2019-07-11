@@ -64,7 +64,7 @@
                  <p>Seleccione la imagen para la noticia:
                  </p>
         <asp:FileUpload ID="imgUpload" class="btn btn-primary form-control-file" runat="server" />
-                <asp:Image ID="img" runat="server" />
+                <asp:Image ID="img" height="250px" width="50%" runat="server" />
 
             </div>
              <asp:button ID="btnCrear" runat="server" class="btn btn-primary btn-block" Text="Guardar"/>
