@@ -72,8 +72,8 @@
                         cat = categoria
                     End If
                 Next
-            Else
-                If IsNumeric(txtPrecioDesde.Text) Then
+            End If
+            If IsNumeric(txtPrecioDesde.Text) Then
                     precioMin = CDbl(txtPrecioDesde.Text)
                 End If
                 If IsNumeric(txtPrecioHasta.Text) Then
@@ -83,15 +83,26 @@
 
 
 
-            End If
+
 
 
 
             If ddlCategoria.SelectedValue <> 0 Or IsNumeric(txtPrecioDesde.Text) Or IsNumeric(txtPrecioHasta.Text) Then
+                If precioMax < precioMin And precioMax <> 0 Then
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "El rango de precios de busqueda es erroneo", "Clasificados.aspx")
+                    Return
+                End If
                 Dim listaAnuncios As List(Of BE.Anuncio)
                 listaAnuncios = BLL.Anuncio.Filtrar(cat, precioMin, precioMax)
-                Me.rpt1.DataSource = listaAnuncios
-                Me.rpt1.DataBind()
+                If listaAnuncios.Count > 0 Then
+                    Me.rpt1.DataSource = listaAnuncios
+                    Me.rpt1.DataBind()
+                    Return
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No se encontro ningun articulo con esas caracteristicas ", "Clasificados.aspx")
+                    Return
+                End If
+
             End If
 
 
