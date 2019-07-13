@@ -220,19 +220,24 @@ Public Class Reportes
 
         Try
             Dim res = BLL.Reporte.mensual(CInt(ddlMes.SelectedValue))
-            Me.lblTotalMensual.Text = BLL.Reporte.total(res)
-            Me.divGananciasResultados.Visible = True
-            'Dim table = Helpers.Charts.DicToDataTable(res, "Minutos")
-            'Dim Dvista As New System.Data.DataView(res)
-            Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.Reporte)(res))
-            ChartGanancias.Series(0).Points.DataBindXY(Dvista, "fecha", Dvista, "monto")
-            ChartGanancias.Series(0).ChartType = SeriesChartType.Area
-            ChartGanancias.ChartAreas("ChartAreaGanancias").AxisX.Title = "Fecha"
-            ChartGanancias.ChartAreas("ChartAreaGanancias").AxisY.Title = "$"
-            ChartGanancias.ChartAreas("ChartAreaGanancias").Area3DStyle.Enable3D = True
+            If res.Count > 0 Then
+                Me.lblTotalMensual.Text = BLL.Reporte.total(res)
+                Me.divGananciasResultados.Visible = True
+                'Dim table = Helpers.Charts.DicToDataTable(res, "Minutos")
+                'Dim Dvista As New System.Data.DataView(res)
+                Dim Dvista As New System.Data.DataView(Helpers.Charts.ToDataTable(Of BE.Reporte)(res))
+                ChartGanancias.Series(0).Points.DataBindXY(Dvista, "fecha", Dvista, "monto")
+                ChartGanancias.Series(0).ChartType = SeriesChartType.Area
+                ChartGanancias.ChartAreas("ChartAreaGanancias").AxisX.Title = "Fecha"
+                ChartGanancias.ChartAreas("ChartAreaGanancias").AxisY.Title = "$"
+                ChartGanancias.ChartAreas("ChartAreaGanancias").Area3DStyle.Enable3D = True
 
-            Me.gridGanacias.DataSource = BLL.Reporte.listadoMensual(CInt(ddlMes.SelectedValue))
-            Me.gridGanacias.DataBind()
+                Me.gridGanacias.DataSource = BLL.Reporte.listadoMensual(CInt(ddlMes.SelectedValue))
+                Me.gridGanacias.DataBind()
+            Else
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Sin datos", "No se encontraron datos para el mes seleccionado", Nothing)
+            End If
+
         Catch ex As Exception
             TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! " & ex.Message, Nothing)
         End Try

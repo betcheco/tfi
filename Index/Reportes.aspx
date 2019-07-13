@@ -282,7 +282,7 @@ color:#f0ad4e;
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 justify-content-center">
-                                    <h6>Reporte anual hasta la fecha</h6>
+                                    <label>Reporte anual hasta la fecha</label>
                                 </div>
                                 <div class="col-md-6 justify-content-center">
                                     <asp:Button class="btn btn-primary mt-1 align-content-center w-50" ID="btnGananciasYTD" runat="server" Text="Ver reporte" formnovalidate />
@@ -291,18 +291,14 @@ color:#f0ad4e;
                             </div>
                         </div>
                     </div>
-
-
-                    
-                    
                 </div>
             </div>
         </div>
 
         <!--Grafico-->
-        <div id="divGanancias_Content" class="row  mt-2 d-flex justify-content-center" runat="server">
-            <div class="card text-center">
-                <asp:Chart EnableViewState="true" runat="server" CssClass="align-content-center" ID="ChartGanancias">
+        <div id="divGanancias_Content" class="container mt-2" runat="server">
+           <div class="row justify-content-center">
+                <asp:Chart EnableViewState="true" runat="server" CssClass="text-center" ID="ChartGanancias">
                     <Series>
                         <asp:Series Name="SeriesGanancias"></asp:Series>
                     </Series>
@@ -310,16 +306,18 @@ color:#f0ad4e;
                         <asp:ChartArea Name="ChartAreaGanancias"></asp:ChartArea>
                     </ChartAreas>
                 </asp:Chart>
-            </div>
-            <div id="divGananciasResultados" runat="server" class="col-2 mt-5" visible="false">
-                <asp:Label runat="server">Total: $</asp:Label>
-                <asp:Label runat="server" ID="lblTotalMensual" class="mt-3"></asp:Label>
-                <div class="row align-content-center">
-                    <asp:Button runat="server" ID="btnVerListado" CssClass="btn btn-primary mt-1" Text="Ver Listado" />
+           </div> 
+            <div class="row justify-content-center">
+                <div id="divGananciasResultados" runat="server" class="col-2 mt-5 text-center" visible="false">
+                    <asp:Label runat="server">Total: $</asp:Label>
+                    <asp:Label runat="server" ID="lblTotalMensual" class="mt-3"></asp:Label>
+                    <div class="row justify-content-center">
+                        <asp:Button runat="server" ID="btnVerListado" CssClass="btn btn-primary mt-1 text-center" Text="Ver Listado" />
+                    </div>
                 </div>
             </div>
             <div id="divPreguntaGanancias" runat="server" class=" justify-content-center" style="width: 100%; font-size: 4vh; font-weight: bold" />
-            <asp:GridView ID="gridGanacias" runat="server" class="table table-hover" AutoGenerateColumns="False" Visible="False">
+            <asp:GridView ID="gridGanacias" runat="server" class="table table-hover w-100 mt-4" BorderWidth="2" AutoGenerateColumns="False" Visible="False">
                 <Columns>
                     <asp:BoundField AccessibleHeaderText="Nro" HeaderText="Nro" DataField="nro" />
                     <asp:BoundField AccessibleHeaderText="Detalle" HeaderText="Detalle" DataField="detalle" />
@@ -329,7 +327,7 @@ color:#f0ad4e;
             </asp:GridView>
         </div>
 
-    </div>
+   
 
     <!--Footer-->
     <div class="row mt-2 d-flex justify-content-center">
