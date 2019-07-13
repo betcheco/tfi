@@ -39,83 +39,98 @@ color: #4CB1CF
 background-color: #fff;
 color:#F0433D;
 }
+  .btn-outline-danger:active{
+      background-color: #F0433D;
+      color:#fff;
+  }
+
   .bg-color-brown {
 background-color: #fff;
 color:#f0ad4e;
 }
 
+  .btn-chats-active{
+      background-color: #F0433D;
+      color:white;  
+  }
+
+  .btn-fichas-active{
+      background-color:forestgreen;
+      color:white;
+  }
+
+  .btn-ganancias-active{
+      background-color:#4CB1CF;
+      color:white;
+  }
+
+  .btn-encuestas-active{
+      background-color:yellow;
+      color:black;
+      
+  }
+
 
     </style>
+    <!--Botones de reportes-->
     <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="card panel-primary text-center no-boder bg-color-green">
-                            <div class="panel-body">
-                                <%--<i class="fa fa-chart-bar fa-5x"></i>--%>
-                          <%--      <h3>Fichas de opinion</h3>
-                          --%>  </div>
-                            <%--<div class="card-footer back-footer-green">--%>
-                                 <asp:LinkButton ID="btnFichas" runat="server" CssClass="btn-outline-success" >Fichas de opinion</asp:LinkButton>
-                            <%--</div>--%>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="card panel-primary text-center no-boder bg-color-blue">
-                            <div class="panel-body">
-                           <%--     <i class="fa fa-shopping-cart fa-5x"></i>
-                                <h3>Ganancias </h3>--%>
-                            </div>
-                            <%--<div class="card-footer bg-color-dark">--%>
-                                <asp:LinkButton ID="btnGanancias" runat="server"  CssClass="btn-outline-info">Ganancias</asp:LinkButton>
-
-                            <%--</div>--%>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="card panel-primary text-center no-boder bg-color-red">
-                           <div class="panel-body">
-                                 <%--<i class="fa fa fa-comments fa-5x"></i>
-                                <h3>Tiempo de respuesta</h3>--%>
-                            </div>
-                            <%--<div class="card-footer back-footer-red">--%>
-                               <asp:LinkButton ID="btnChats" runat="server"  CssClass="btn-outline-danger">Tiempo de respuesta</asp:LinkButton>
-
-                            <%--</div>--%>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="card panel-primary text-center no-boder bg-color-brown">
-                            <div class="panel-body">
-                              <%--  <i class="fa fa-users fa-5x"></i>
-                                <h3>Encuestas </h3>--%>
-                            </div>
-                            <%--<div class="card-footer back-footer-brown">--%>
-                                 <asp:LinkButton ID="btnEncuestas" runat="server"  CssClass="btn-outline-warning" >Encuestas</asp:LinkButton>
-
-                            <%--</div>--%>
-                        </div>
-                    </div>
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="card panel-primary text-center no-boder bg-color-green">
+                <div class="panel-body">
+                </div>      
+                <asp:LinkButton ID="btnFichas" runat="server" CssClass="btn-outline-success">Fichas de opinion</asp:LinkButton>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="card panel-primary text-center no-boder bg-color-blue">
+                <div class="panel-body">
                 </div>
+                <asp:LinkButton ID="btnGanancias" runat="server" CssClass="btn-outline-info">Ganancias</asp:LinkButton>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="card panel-primary text-center no-boder bg-color-red">
+                <div class="panel-body">
+                </div>
+                <asp:LinkButton ID="btnChats" runat="server" CssClass="btn-outline-danger">Tiempo de respuesta</asp:LinkButton>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="card panel-primary text-center no-boder bg-color-brown">
+                <div class="panel-body">
+                </div>
+                <asp:LinkButton ID="btnEncuestas" runat="server" CssClass="btn-outline-warning">Encuestas</asp:LinkButton>
+            </div>
+        </div>
+    </div>
 
   <!--Tiempo De Respuesta-->
     <div id="divTiempoDeRespuesta" runat="server" class="container mt-2">
-        <h3>Tiempos de respuesta</h3>
-        <div class="row">
-            <div class="col-sm-3">
-                <asp:Label runat="server" for="dpDesdeTiempoDeRespuesta">Desde:</asp:Label>
-               <asp:TextBox ID="dpDesdeTiempoDeRespuesta" runat="server" TextMode="Date" CssClass="mt-1"></asp:TextBox>
-            </div>
-            <div class="col-sm-3">
-                <asp:Label runat="server" for="dpHastaTiempoDeRespuesta">Hasta:</asp:Label>
-                <asp:TextBox ID="dpHastaTiempoDeRespuesta" runat="server" TextMode="Date" CssClass="mt-1" ></asp:TextBox>
-            </div>
-            <div class="col-sm-3">
-
-                <asp:Button class="btn btn-primary mt-1" ID="btnFiltrarTiempoDeRespuesta" runat="server" Text="Filtrar" formnovalidate />
+        <!--Filtros-->
+        <div class="row mt-4">
+            <div class="card w-100">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <asp:Label runat="server" for="dpDesdeTiempoDeRespuesta">Desde:</asp:Label>
+                            <asp:TextBox ID="dpDesdeTiempoDeRespuesta" runat="server" TextMode="Date" CssClass="mt-1"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-4">
+                            <asp:Label runat="server" for="dpHastaTiempoDeRespuesta">Hasta:</asp:Label>
+                            <asp:TextBox ID="dpHastaTiempoDeRespuesta" runat="server" TextMode="Date" CssClass="mt-1"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-4 justify-content-center">
+                            <asp:Button class="btn btn-primary mt-1 w-50" ID="btnFiltrarTiempoDeRespuesta" runat="server" Text="Filtrar" formnovalidate />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!--Grafico-->
         <div id="divTiempoDeRespuesta_Content" class="row" runat="server">
-            <div id="divPreguntaTiempoDeRespuesta" runat="server" style="width: 100%; font-size: 4vh; font-weight: bold" />
-            <div id="divChartTiempoDeRespuesta" runat="server" style="width: 800px; height: 600px">
+            <div id="divPreguntaTiempoDeRespuesta" runat="server" style="width: 100%; font-size: 4vh; font-weight: bold; text-align:center" />
+            <div id="divChartTiempoDeRespuesta" runat="server" style="width: 800px; height: 600px; text-align:center">
                 <asp:Chart EnableViewState="true" ID="chartTiempoDeRespuesta" runat="server" Style="max-width: 100%">
                     <Series>
                         <asp:Series Name="Series1"></asp:Series>
@@ -130,9 +145,8 @@ color:#f0ad4e;
 
     <!--encuestas-->
     <div id="divEncuestas" runat="server" class="container mt-2">
-        <h3>Encuestas</h3>
-        <div class="row">
-            <asp:GridView ID="grdEncuestas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-sm" DataKeyNames="id" AllowPaging="False" Width="650px">
+        <div class="row mt-4 justify-content-center">
+            <asp:GridView ID="grdEncuestas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover w-100" DataKeyNames="id" AllowPaging="False" Width="650px" BorderWidth="2">
                 <Columns>
                     <asp:ButtonField CommandName="Select" ShowHeader="True" Text='<i class="far fa-eye"></i>'>
                         <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="35px" />
@@ -149,9 +163,9 @@ color:#f0ad4e;
                 </Columns>
             </asp:GridView>
         </div>
-        <div id="divEncuestas_Content" class="row" runat="server">
-            <div id="divPreguntaEncuesta" runat="server" style="width: 100%; font-size: 4vh; font-weight: bold" />
-            <div id="divChartEncuesta" runat="server" style="width: 600px; height: 600px">
+        <div id="divEncuestas_Content" class="row justify-content-center" runat="server">
+            <div id="divPreguntaEncuesta" runat="server" style="width: 100%; font-size: 4vh; font-weight: bold; text-align:center" />
+            <div id="divChartEncuesta" runat="server" style="width: 100%; height: 600px; align-self:center; text-align:center" class="justify-content-center">
                 <asp:Chart EnableViewState="true" ID="chartEncuesta" runat="server" Style="max-width: 100%">
                     <Series>
                         <asp:Series Name="Series1"></asp:Series>
@@ -166,9 +180,8 @@ color:#f0ad4e;
 
     <!--fichas de opinion-->
     <div id="divFichasDeOpinion" runat="server" class="container mt-2">
-        <h3>Fichas de opinion</h3>
-        <div class="row">
-            <asp:GridView ID="grdFichasDeOpinion" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-sm" DataKeyNames="id" AllowPaging="False" Width="650px">
+        <div class="row mt-4 justify-content-center">
+            <asp:GridView ID="grdFichasDeOpinion" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover w-100"  BorderWidth="2" DataKeyNames="id" AllowPaging="False" Width="650px">
                 <Columns>
                     <asp:ButtonField CommandName="Select" ShowHeader="True" Text='<i class="far fa-eye"></i>'>
                         <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="35px" />
@@ -185,8 +198,8 @@ color:#f0ad4e;
                 </Columns>
             </asp:GridView>
         </div>
-        <div id="divFichasDeOpinion_Content" class="row" runat="server">
-            <div id="divPreguntaFichaDeOpinion" runat="server" style="width: 100%; font-size: 4vh; font-weight: bold" />
+        <div id="divFichasDeOpinion_Content" class="row justify-content-center" runat="server">
+            <div id="divPreguntaFichaDeOpinion" runat="server" style="width: 100%; font-size: 4vh; font-weight: bold; text-align:center" />
             <div id="divChartFichaDeOpinion" runat="server" style="width: 600px; height: 600px">
                 <asp:Chart EnableViewState="true" ID="chartFichaDeOpinion" runat="server" Style="max-width: 100%">
                     <Series>
@@ -201,90 +214,91 @@ color:#f0ad4e;
     </div>
 
      <!--Ganancias-->
-    <div id="divGanancias" runat="server" class="container-fluid mt-2">
-         <h3>Ganancias</h3>
-        <div class="row">           
+    <div id="divGanancias" runat="server" class="container mt-2">
+        <!--Filtros-->
+        <div class="row">
             <div class="col-6">
-             <div class="d-inline">
-                 <h6 class="card-title">Filtrar por fecha</h6>
-                 <div class="d-inline">
-                     <asp:Label runat="server" for="dpDesdeGanancias" class="d-inline-block">Desde:</asp:Label>
-                     <asp:TextBox ID="dpDesdeGanancias" runat="server" TextMode="Date"></asp:TextBox>                 
-                     <asp:Button class="btn btn-primary mt-1 mx-1" ID="btnFiltrarGanancias" runat="server" Text="Filtrar" formnovalidate />
-                 </div>
-                  <div >
-                     <asp:Label runat="server" for="dpHastaGanancias" class="d-inline-block">Hasta:</asp:Label>
-                     <asp:TextBox ID="dpHastaGanancias" runat="server" TextMode="Date" CssClass="mx-1"></asp:TextBox>
-                  </div>
-             </div>
-         </div>
-           
-            <%--<div class="col-6">--%>
-             <div class="col-md-3 col-sm-12 col-xs-12">
-                 <div>
-                  <h6>Reporte mensual</h6>
-                     <div class="d-inline" >
-             <label for="ddlMes" class="ml-2">Mes:</label>
-             <asp:DropDownList ID="ddlMes" runat="server" Width="60px">
-                 <asp:ListItem Value="1">Ene</asp:ListItem>
-                 <asp:ListItem Value="2">Feb</asp:ListItem>
-                 <asp:ListItem Value="3">Mar</asp:ListItem>
-                 <asp:ListItem Value="4">Abr</asp:ListItem>
-                 <asp:ListItem Value="5">May</asp:ListItem>
-                 <asp:ListItem Value="6">Jun</asp:ListItem>
-                 <asp:ListItem Value="7">Jul</asp:ListItem>
-                 <asp:ListItem Value="8">Ago</asp:ListItem>
-                 <asp:ListItem Value="9">Sep</asp:ListItem>
-                 <asp:ListItem Value="10">Oct</asp:ListItem>
-                 <asp:ListItem Value="11">Nov</asp:ListItem>
-                 <asp:ListItem Value="12">Dic</asp:ListItem>
-                </asp:DropDownList>
-                 <asp:Button class="btn small btn-primary mt-1 ml-1" ID="btnMensualGanancias" runat="server" Text="Ver Reporte" formnovalidate />
-                         </div>
-                     </div>
-            </div>  
-              <div class="col-md-3 col-sm-12 col-xs-12">
-                 <div>
-                 <h6 >Reporte anual:</h6>
-             <asp:Button class="btn btn-primary mt-1 align-content-center" ID="btnGananciasYTD" runat="server" Text="YTD" formnovalidate />
-             </div>
-               </div>   
-         <%--</div>--%>
-           
+                <div class="d-inline">
+                    <h6 class="card-title">Filtrar por fecha</h6>
+                    <div class="d-inline">
+                        <asp:Label runat="server" for="dpDesdeGanancias" class="d-inline-block">Desde:</asp:Label>
+                        <asp:TextBox ID="dpDesdeGanancias" runat="server" TextMode="Date"></asp:TextBox>
+                        <asp:Button class="btn btn-primary mt-1 mx-1" ID="btnFiltrarGanancias" runat="server" Text="Filtrar" formnovalidate />
+                    </div>
+                    <div>
+                        <asp:Label runat="server" for="dpHastaGanancias" class="d-inline-block">Hasta:</asp:Label>
+                        <asp:TextBox ID="dpHastaGanancias" runat="server" TextMode="Date" CssClass="mx-1"></asp:TextBox>
+                    </div>
+                </div>
             </div>
-     
-       
-        <div id="divGanancias_Content" class="row" runat="server">
-            <asp:Chart EnableViewState="true" runat="server" CssClass="align-content-center" id="ChartGanancias">
-    <Series>
-        <asp:Series Name="SeriesGanancias"></asp:Series>
-    </Series>
-    <ChartAreas>
-        <asp:ChartArea Name="ChartAreaGanancias"></asp:ChartArea>
-    </ChartAreas>
+
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div>
+                    <h6>Reporte mensual</h6>
+                    <div class="d-inline">
+                        <label for="ddlMes" class="ml-2">Mes:</label>
+                        <asp:DropDownList ID="ddlMes" runat="server" Width="60px">
+                            <asp:ListItem Value="1">Ene</asp:ListItem>
+                            <asp:ListItem Value="2">Feb</asp:ListItem>
+                            <asp:ListItem Value="3">Mar</asp:ListItem>
+                            <asp:ListItem Value="4">Abr</asp:ListItem>
+                            <asp:ListItem Value="5">May</asp:ListItem>
+                            <asp:ListItem Value="6">Jun</asp:ListItem>
+                            <asp:ListItem Value="7">Jul</asp:ListItem>
+                            <asp:ListItem Value="8">Ago</asp:ListItem>
+                            <asp:ListItem Value="9">Sep</asp:ListItem>
+                            <asp:ListItem Value="10">Oct</asp:ListItem>
+                            <asp:ListItem Value="11">Nov</asp:ListItem>
+                            <asp:ListItem Value="12">Dic</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Button class="btn small btn-primary mt-1 ml-1" ID="btnMensualGanancias" runat="server" Text="Ver Reporte" formnovalidate />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div>
+                    <h6>Reporte anual:</h6>
+                    <asp:Button class="btn btn-primary mt-1 align-content-center" ID="btnGananciasYTD" runat="server" Text="YTD" formnovalidate />
+                </div>
+            </div>
+        </div>
+
+        <!--Grafico-->
+        <div id="divGanancias_Content" class="row  mt-2 d-flex justify-content-center" runat="server">
+            <div class="card text-center">
+                <asp:Chart EnableViewState="true" runat="server" CssClass="align-content-center" ID="ChartGanancias">
+                    <Series>
+                        <asp:Series Name="SeriesGanancias"></asp:Series>
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartAreaGanancias"></asp:ChartArea>
+                    </ChartAreas>
                 </asp:Chart>
+            </div>
             <div id="divGananciasResultados" runat="server" class="col-2 mt-5" visible="false">
-                <asp:Label runat="server" >Total: $</asp:Label>
+                <asp:Label runat="server">Total: $</asp:Label>
                 <asp:Label runat="server" ID="lblTotalMensual" class="mt-3"></asp:Label>
                 <div class="row align-content-center">
-                    <asp:Button runat="server" ID="btnVerListado" CssClass="btn btn-primary mt-1"  text="Ver Listado" />                             
+                    <asp:Button runat="server" ID="btnVerListado" CssClass="btn btn-primary mt-1" Text="Ver Listado" />
                 </div>
-                     </div>
-            <div id="divPreguntaGanancias" runat="server" class=" justify-content-center" style="width: 100%; font-size: 4vh; font-weight: bold" />
-       <asp:GridView ID="gridGanacias" runat="server" class="table table-hover" AutoGenerateColumns="False" Visible="False">
-           <Columns>
-               <asp:BoundField AccessibleHeaderText="Nro" HeaderText="Nro" DataField="nro" />
-               <asp:BoundField AccessibleHeaderText="Detalle" HeaderText="Detalle" DataField="detalle" />
-               <asp:BoundField AccessibleHeaderText="Fecha" HeaderText="Fecha" DataField="fecha" />
-               <asp:BoundField AccessibleHeaderText="Monto" HeaderText="Monto" DataField="monto" />
-           </Columns>
-                </asp:GridView>
-        </div>
-  
-        </div>
-    <div class="row mt-2 d-flex justify-content-center">
-                <a class="d-block small mt-3" href="Home.aspx">Ir a inicio</a>
             </div>
+            <div id="divPreguntaGanancias" runat="server" class=" justify-content-center" style="width: 100%; font-size: 4vh; font-weight: bold" />
+            <asp:GridView ID="gridGanacias" runat="server" class="table table-hover" AutoGenerateColumns="False" Visible="False">
+                <Columns>
+                    <asp:BoundField AccessibleHeaderText="Nro" HeaderText="Nro" DataField="nro" />
+                    <asp:BoundField AccessibleHeaderText="Detalle" HeaderText="Detalle" DataField="detalle" />
+                    <asp:BoundField AccessibleHeaderText="Fecha" HeaderText="Fecha" DataField="fecha" />
+                    <asp:BoundField AccessibleHeaderText="Monto" HeaderText="Monto" DataField="monto" />
+                </Columns>
+            </asp:GridView>
+        </div>
+
+    </div>
+
+    <!--Footer-->
+    <div class="row mt-2 d-flex justify-content-center">
+        <a class="d-block small mt-3" href="Home.aspx">Ir a inicio</a>
+    </div>
 			
 </asp:Content>
 

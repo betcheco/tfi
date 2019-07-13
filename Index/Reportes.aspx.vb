@@ -47,6 +47,11 @@ Public Class Reportes
         Me.divFichasDeOpinion.Visible = False
         Me.divGanancias.Visible = False
         Me.divEncuestas.Visible = False
+
+        Me.btnChats.CssClass = "btn-chats-active"
+        Me.btnEncuestas.CssClass = "btn-outline-warning"
+        Me.btnFichas.CssClass = "btn-outline-success"
+        Me.btnGanancias.CssClass = "btn-outline-info"
     End Sub
     Protected Sub btnFiltrarTiempoDeRespuesta_Click(sender As Object, e As EventArgs) Handles btnFiltrarTiempoDeRespuesta.Click
         'valida que ambas fechas esten indicadas
@@ -92,6 +97,8 @@ Public Class Reportes
 
         Me.divTiempoDeRespuesta_Content.Visible = True
 
+
+
     End Sub
 
     Protected Sub btnFichas_Click(sender As Object, e As EventArgs) Handles btnFichas.Click
@@ -100,6 +107,11 @@ Public Class Reportes
         Me.divGanancias.Visible = False
         Me.divEncuestas.Visible = False
         Me.divGananciasResultados.Visible = False
+
+        Me.btnChats.CssClass = "btn-outline-danger"
+        Me.btnEncuestas.CssClass = "btn-outline-warning"
+        Me.btnFichas.CssClass = "btn-fichas-active"
+        Me.btnGanancias.CssClass = "btn-outline-info"
     End Sub
 
     Protected Sub btnGanancias_Click(sender As Object, e As EventArgs) Handles btnGanancias.Click
@@ -108,6 +120,13 @@ Public Class Reportes
         Me.divGanancias.Visible = True
         Me.divEncuestas.Visible = False
         Me.divGananciasResultados.Visible = False
+
+
+        Me.btnChats.CssClass = "btn-outline-danger"
+        Me.btnEncuestas.CssClass = "btn-outline-warning"
+        Me.btnFichas.CssClass = "btn-outline-success"
+        Me.btnGanancias.CssClass = "btn-ganancias-active"
+
 
 
 
@@ -121,6 +140,10 @@ Public Class Reportes
         Me.divGananciasResultados.Visible = False
 
 
+        Me.btnChats.CssClass = "btn-outline-danger"
+        Me.btnEncuestas.CssClass = "btn-encuestas-active"
+        Me.btnFichas.CssClass = "btn-outline-success"
+        Me.btnGanancias.CssClass = "btn-outline-info"
 
     End Sub
 
@@ -156,6 +179,8 @@ Public Class Reportes
 
 
         Me.divFichasDeOpinion_Content.Visible = True
+
+
 
     End Sub
 

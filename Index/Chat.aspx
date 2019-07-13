@@ -14,7 +14,7 @@
             </div>
         </div>
         <div id="divInput" runat="server" style="display: flex; flex-direction: row; margin-top: 10px;">
-            <asp:TextBox ID="txtInput" runat="server" class="form-control" MaxLength="50" Style="margin-right: 10px" placeholder="Escriba aquí su mensaje"></asp:TextBox>
+            <asp:TextBox ID="txtInput" runat="server" class="form-control" MaxLength="250" Style="margin-right: 10px" placeholder="Escriba aquí su mensaje"></asp:TextBox>
             <asp:Button class="btn btn-primary" ID="btnEnviar" runat="server" Text="Enviar" />
         </div>
     </div>

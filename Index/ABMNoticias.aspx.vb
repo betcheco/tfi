@@ -40,8 +40,8 @@
             noti.id = grdNoticias.Rows(e.RowIndex).Cells(0).Text
             If BLL.Noticia.Eliminar(noti) Then
                 bitacora.evento = "Se elimino la noticia " & noti.id
-                'bitacora.usuario = Session("currentUser").email
-                bitacora.usuario = "user"
+                bitacora.usuario = Session("currentUser").email
+                'bitacora.usuario = "user"
                 bitacora.criticidad = 3
                 TryCast(Me.Master, masterPrincipal).mostrarMesaje("Noticia eliminada con exito0", "La noticia fue eliminada con exito", Nothing)
                 ActualizarNoticias()

@@ -32,6 +32,15 @@ Partial Public Class masterPrincipal
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
+    '''loading control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents loading As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''inputSearch control.
     '''</summary>
     '''<remarks>

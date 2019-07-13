@@ -1,6 +1,6 @@
 ﻿Public Class Chat
     Inherits System.Web.UI.Page
-
+    Dim bitacora As New BE.Bitacora
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Request.QueryString("operacion") Is Nothing Then
             Response.Redirect("Home.aspx")
@@ -51,7 +51,12 @@
         Try
             chat.pregunta = Me.txtInput.Text
             chat.operacion_id = Request.QueryString("operacion")
-            BLL.Chat.Nuevo(chat)
+            If BLL.Chat.Nuevo(chat) Then
+                bitacora.criticidad = 2
+                bitacora.descripcion = "Se realizo pregunta sobre operacio nro: " & chat.operacion_id
+                bitacora.usuario = Session("currentUser").email
+                BLL.Bitacora.RegistarEvento(bitacora)
+            End If
             Me.txtInput.Text = ""
             ActualizarChats()
         Catch ex As Exception

@@ -110,7 +110,6 @@
   <ItemGroup>
     <Folder Include="backups\" />
     <Folder Include="comprobantes\" />
-    <Folder Include="css\" />
     <Folder Include="img\cards\" />
     <Folder Include="img\noticia\" />
     <Folder Include="js\" />
@@ -155,6 +154,7 @@
     <Content Include="Comparar.aspx" />
     <Content Include="Comprar.aspx" />
     <Content Include="Contacto.aspx" />
+    <Content Include="css\css-loader.css" />
     <Content Include="Cuentacorriente.aspx" />
     <Content Include="emailTemplates\emailTemplate.html" />
     <Content Include="emailTemplates\factura.html" />
