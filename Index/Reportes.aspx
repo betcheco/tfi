@@ -217,48 +217,84 @@ color:#f0ad4e;
     <div id="divGanancias" runat="server" class="container mt-2">
         <!--Filtros-->
         <div class="row">
-            <div class="col-6">
-                <div class="d-inline">
-                    <h6 class="card-title">Filtrar por fecha</h6>
-                    <div class="d-inline">
-                        <asp:Label runat="server" for="dpDesdeGanancias" class="d-inline-block">Desde:</asp:Label>
-                        <asp:TextBox ID="dpDesdeGanancias" runat="server" TextMode="Date"></asp:TextBox>
-                        <asp:Button class="btn btn-primary mt-1 mx-1" ID="btnFiltrarGanancias" runat="server" Text="Filtrar" formnovalidate />
-                    </div>
-                    <div>
-                        <asp:Label runat="server" for="dpHastaGanancias" class="d-inline-block">Hasta:</asp:Label>
-                        <asp:TextBox ID="dpHastaGanancias" runat="server" TextMode="Date" CssClass="mx-1"></asp:TextBox>
-                    </div>
+            <div class="card text-center w-100">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active show" id="fechas-tab" data-toggle="tab" href="#fechas" role="tab" aria-selected="true">Fechas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="mensual-tab" data-toggle="tab" href="#mensual" role="tab" aria-selected="false">Mensual</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="anual-tab" data-toggle="tab" href="#anual" role="tab" aria-selected="false">Anual</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade active show" id="fechas" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="card-body">
+                            <div class="row justify-content-center">                                                     
+                                        <div class="col-sm-4">
+                                            <asp:Label runat="server" for="dpDesdeGanancias" class="d-inline-block">Desde:</asp:Label>
+                                            <asp:TextBox ID="dpDesdeGanancias" runat="server" TextMode="Date"></asp:TextBox>                                      
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <asp:Label runat="server" for="dpHastaGanancias" class="d-inline-block">Hasta:</asp:Label>
+                                            <asp:TextBox ID="dpHastaGanancias" runat="server" TextMode="Date" CssClass="mx-1"></asp:TextBox>
+                                        </div>
+                                <div class="col-sm-4 justify-content-center">
+                                     <asp:Button class="btn btn-primary mt-1 w-50" ID="btnFiltrarGanancias" runat="server" Text="Filtrar" formnovalidate />
+                                </div>               
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <div>
-                    <h6>Reporte mensual</h6>
-                    <div class="d-inline">
-                        <label for="ddlMes" class="ml-2">Mes:</label>
-                        <asp:DropDownList ID="ddlMes" runat="server" Width="60px">
-                            <asp:ListItem Value="1">Ene</asp:ListItem>
-                            <asp:ListItem Value="2">Feb</asp:ListItem>
-                            <asp:ListItem Value="3">Mar</asp:ListItem>
-                            <asp:ListItem Value="4">Abr</asp:ListItem>
-                            <asp:ListItem Value="5">May</asp:ListItem>
-                            <asp:ListItem Value="6">Jun</asp:ListItem>
-                            <asp:ListItem Value="7">Jul</asp:ListItem>
-                            <asp:ListItem Value="8">Ago</asp:ListItem>
-                            <asp:ListItem Value="9">Sep</asp:ListItem>
-                            <asp:ListItem Value="10">Oct</asp:ListItem>
-                            <asp:ListItem Value="11">Nov</asp:ListItem>
-                            <asp:ListItem Value="12">Dic</asp:ListItem>
-                        </asp:DropDownList>
-                        <asp:Button class="btn small btn-primary mt-1 ml-1" ID="btnMensualGanancias" runat="server" Text="Ver Reporte" formnovalidate />
+                    <div class="tab-pane fade" id="mensual" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="card-body">
+                            <div class="row justify-content-center">
+                        <div class="col-md-6">
+                           <label for="ddlMes" class="ml-2">Seleccionar mes del año en curso:</label>
+                                <asp:DropDownList ID="ddlMes" runat="server">
+                                    <asp:ListItem Value="1">Enero</asp:ListItem>
+                                    <asp:ListItem Value="2">Febrero</asp:ListItem>
+                                    <asp:ListItem Value="3">Marzo</asp:ListItem>
+                                    <asp:ListItem Value="4">Abril</asp:ListItem>
+                                    <asp:ListItem Value="5">Mayo</asp:ListItem>
+                                    <asp:ListItem Value="6">Junio</asp:ListItem>
+                                    <asp:ListItem Value="7">Julio</asp:ListItem>
+                                    <asp:ListItem Value="8">Agosto</asp:ListItem>
+                                    <asp:ListItem Value="9">Septiembre</asp:ListItem>
+                                    <asp:ListItem Value="10">Octubre</asp:ListItem>
+                                    <asp:ListItem Value="11">Noviembre</asp:ListItem>
+                                    <asp:ListItem Value="12">Diciembre</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-md-6 justify-content-center">
+                               <asp:Button class="btn small btn-primary mt-1 ml-1" ID="btnMensualGanancias" runat="server" Text="Ver Reporte" formnovalidate />
+                            </div>
+                        
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <div>
-                    <h6>Reporte anual:</h6>
-                    <asp:Button class="btn btn-primary mt-1 align-content-center" ID="btnGananciasYTD" runat="server" Text="YTD" formnovalidate />
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="anual" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 justify-content-center">
+                                    <h6>Reporte anual hasta la fecha</h6>
+                                </div>
+                                <div class="col-md-6 justify-content-center">
+                                    <asp:Button class="btn btn-primary mt-1 align-content-center w-50" ID="btnGananciasYTD" runat="server" Text="Ver reporte" formnovalidate />
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                    
                 </div>
             </div>
         </div>

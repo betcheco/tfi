@@ -248,15 +248,6 @@ Partial Public Class Reportes
     Protected WithEvents dpDesdeGanancias As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''btnFiltrarGanancias control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnFiltrarGanancias As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
     '''dpHastaGanancias control.
     '''</summary>
     '''<remarks>
@@ -264,6 +255,15 @@ Partial Public Class Reportes
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dpHastaGanancias As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''btnFiltrarGanancias control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnFiltrarGanancias As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''ddlMes control.
