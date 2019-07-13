@@ -179,27 +179,30 @@
 
                   <!--Links -->
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
-                      <li class="nav-item d-inline-flex">
-                          <a class="nav-link" href="Home.aspx">¿Quienes somos?</a>
+                      <li class="nav-item d-inline-flex text-white">
+                          <a class="nav-link text-white" href="Home.aspx">¿Quienes somos?</a>
                       </li>
-                      <li class="nav-item d-inline-flex">
-                          <a class="nav-link" href="Noticias.aspx">Noticias</a>
+                      <li class="nav-item d-inline-flex text-white">
+                          <a class="nav-link text-white" href="Noticias.aspx">Noticias</a>
                       </li>
-                      <li class="nav-item d-inline-flex">
-                          <a class="nav-link" href="FAQs.aspx">FAQs</a>
+                      <li class="nav-item d-inline-flex text-white">
+                          <a class="nav-link text-white" href="FAQs.aspx">FAQs</a>
                              
                           
                       &nbsp;</li>
                   </ul>
-                   <a class="nav-link" href="#" onclick="incFontSize()"><i class="fas fa-search-plus"></i></a>
-                    <a class="nav-link" href="#" onclick="decFontSize()"><i class="fas fa-search-minus"></i></a>
+                   <a class="nav-link" href="#" onclick="incFontSize()"><i class="fas fa-search-plus text-white"></i></a>
+                    <a class="nav-link " href="#" onclick="decFontSize()"><i class="fas fa-search-minus text-white"></i></a>
                    <div class="pull-left" id="google_translate_element"></div>
                   <!--Search Bar-->
-                  <div class="form-inline my-2 my-lg-0 ml-5">
-                      <input class="form-control" id="inputSearch" type="search" placeholder="Buscar" aria-label="Search" runat="server">
-                      <asp:linkbutton runat="server" class="btn  btn-primary my-2 my-sm-0 fas fa-search" type="submit" Text='' OnClick="Unnamed1_Click">
+                  <div class="form-inline">
+                      <div class="row form-inline mr-5 ml-3">
+                          <input class="form-control" id="inputSearch" type="search" placeholder="Buscar" aria-label="Search" runat="server">
+                          <asp:LinkButton runat="server" class="btn  btn-primary fas fa-search" type="submit" Text='' OnClick="Unnamed1_Click">
                           <%--<span class="fas fa-search"> </span>--%>
-                      </asp:linkbutton>
+                          </asp:LinkButton>
+                      </div>
+                      
 
                   </div>
 
@@ -207,7 +210,7 @@
                   <ul class="navbar-nav mx-2">
                       <li id="btnIngresarNavBar" class="nav-item no-arrow inline" runat="server">
                           <div class="dropdown">
-                              <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingresar
+                              <a class="nav-link text-white" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingresar
                               </a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                   <div class="px-4 py-3">
@@ -239,18 +242,18 @@
 
                       <!--NavBar Username & Logout -->
                       <li class="nav-item d-inline-flex" id="username" runat="server">
-                          <a runat="server" class="nav-link" href="#" id="ProfileNavBarBtn"></a>
+                          <a runat="server" class="nav-link text-white" href="#" id="ProfileNavBarBtn"></a>
                       </li>
                       <li runat="server" id="navbarSeparador" class="text-white nav-link d-inline-flex"> | </li>
                       <li class="nav-item d-inline-flex" id="logoutOption" runat="server">
-                          <a runat="server" class="nav-link" href="#" id="LogoutBtn" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                          <a runat="server" class="nav-link text-white" href="#" id="LogoutBtn" data-toggle="modal" data-target="#logoutModal">Logout</a>
                       </li>
                   </ul>
                </div>
           </nav>
 
           <%--ENCUESTA--%>
-               <div runat="server" id="divEncuesta" class="card bg-color-dark" style="width: 18rem; position: fixed; bottom: 5px; right: 5px; border-color: black;">
+               <div runat="server" id="divEncuesta" class="card bg-color-dark" style="width: 18rem; position: fixed; bottom: 5px; right: 5px; border-color: black; display:block">
             <div id="divEncuestaPreguntas" runat="server" class="card-body" visible="true">
                 <h5 class="card-title">Pssst! Tengo una pregunta</h5>
                 <p class="card-text" runat="server" id="encuestaText"></p>
