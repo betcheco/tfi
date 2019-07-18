@@ -160,7 +160,7 @@
     </style>
 <body id="page-top">
       <form id="form1" runat="server">
-          <div id="loading" class="loader loader-default" runat="server"></div>
+          
     <div>
        
     </div>

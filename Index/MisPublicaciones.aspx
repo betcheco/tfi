@@ -7,7 +7,7 @@
         <h2>Mis publicaciones</h2>
     </div>
     <p class="alert-info" id="mensaje" runat="server">"No tenes ningun anuncio publicado, apurate y publica uno!"</p>
-    <asp:GridView ID="gridAnuncios" runat="server" AutoGenerateColumns="False"  class="table table-striped table-light table-hover">
+    <asp:GridView ID="gridAnuncios" runat="server" AutoGenerateColumns="False"  class="table table-striped table-light table-hover w-100" BorderWidth="2">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="Id"  />
             <asp:BoundField DataField="titulo" HeaderText="Titulo"  />

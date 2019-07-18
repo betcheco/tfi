@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Restore
     
     '''<summary>
+    '''loading control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents loading As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''FileUpload1 control.
     '''</summary>
     '''<remarks>

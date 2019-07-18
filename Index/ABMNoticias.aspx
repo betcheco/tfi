@@ -2,12 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card-header">
+    <div>
         <h2>Administrador de noticias</h2>
     </div>
 
     <div class="card-body">
-    <asp:GridView  class="table table-striped table-light table-hover"  ID="grdNoticias" runat="server" AutoGenerateColumns="False" DataKeyNames="id" AllowPaging="True">
+    <asp:GridView  class="table table-striped table-light table-hover w-100"  ID="grdNoticias"  BorderWidth="2" runat="server" AutoGenerateColumns="False" DataKeyNames="id" AllowPaging="True">
           <Columns>
             <asp:BoundField DataField="id" HeaderText="Id"  />
             <asp:BoundField DataField="titulo" HeaderText="Titulo"  />

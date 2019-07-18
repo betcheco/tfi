@@ -3,7 +3,9 @@
 Public Class Backup
     Shared Function RealizarBackup(pBackup As BE.Backup) As Boolean
         ' Dim mstrConexion As String = "Data Source=APU-PC\MSSQL;Initial Catalog=GolfTracking;Integrated Security=True"
-        Dim mstrConexion As String = "Data Source=.\SQL_UAI;Initial Catalog=master;Integrated Security=True"
+        'Dim mstrConexion As String = "Data Source=.\SQL_UAI;Initial Catalog=master;Integrated Security=True"
+        'Lenovo
+        Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=GolfTracking;Integrated Security=True"
         Dim mCon As SqlConnection
         Dim sqlBackup As String = "BACKUP DATABASE [GolfTracking] TO DISK = 'C:\Temp\" & pBackup.name & ".bak'"
         Try
@@ -17,6 +19,7 @@ Public Class Backup
 
             Return True
         Catch ex As Exception
+            Throw ex
             Console.WriteLine(ex.Message & "Error al querer backapear DB ")
             Return False
         End Try

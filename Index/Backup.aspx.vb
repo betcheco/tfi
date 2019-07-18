@@ -25,8 +25,9 @@
             bitacora.evento = "Se genero el backup: " & backup.name
             bitacora.usuario = ""
             BLL.Bitacora.RegistarEvento(bitacora)
+            TryCast(Me.Master, masterPrincipal).mostrarMesaje("Exito", "El backup se realizo con exito", "Home.aspx")
         Else
-            'Error en el backup
+            TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Sucedio un error al realizar el backup", "Backup.aspx")
         End If
     End Sub
 End Class
