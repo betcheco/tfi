@@ -308,7 +308,7 @@ color:#f0ad4e;
                 </asp:Chart>
            </div> 
             <div class="row justify-content-center">
-                <div id="divGananciasResultados" runat="server" class="col-2 mt-5 text-center" visible="false">
+                <div id="divGananciasResultados" runat="server" class="mt-3 text-center" visible="false">
                     <asp:Label runat="server">Total: $</asp:Label>
                     <asp:Label runat="server" ID="lblTotalMensual" class="mt-3"></asp:Label>
                     <div class="row justify-content-center">
