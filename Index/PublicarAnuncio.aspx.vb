@@ -42,10 +42,13 @@ Public Class PublicarAnuncio
                             'Else
                             Response.Redirect("Home.aspx")
                         End If
+                    Else
+                        Session("modficarAnuncio") = False
                     End If
 
                 Else
                     Session("modficarAnuncio") = False
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Debe auntenticarse para acceder", "Home.aspx")
                 End If
                 'TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Debe auntenticarse para acceder", "Home.aspx")
                 'End If

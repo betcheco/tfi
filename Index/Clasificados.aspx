@@ -96,6 +96,20 @@
 	  text-shadow: 0px 0px 1px #000;
 	  background:#292929;
 }
+.articulo {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 25%;
+}
+
+.articulo:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
     </style>
        <script>
          function checkBox(Form){ 
@@ -151,7 +165,7 @@
 
           <div class="row mt-4">
                 <asp:Repeater ID="rpt1" runat="server">
-                   <ItemTemplate>
+                    <ItemTemplate>
                        <div class="grid_1_of_4 images_1_of_4 mx-auto" runat="server" >
                            <asp:Image ID="Image1" runat="server" style="width=200px; height=200px " ImageUrl='<%# Eval("imagen")%>' />
                            <h2>
@@ -178,7 +192,7 @@
 
                        </div>
 
-                   </ItemTemplate>
+                   </ItemTemplate> 
 
         </asp:Repeater>
 

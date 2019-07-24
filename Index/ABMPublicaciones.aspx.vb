@@ -35,7 +35,7 @@
                 bitacora.evento = "Delete anuncio " & anuncio.titulo
                 bitacora.usuario = Session("currentUser").email
                 BLL.Bitacora.RegistarEvento(bitacora)
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Anuncio eleminado", "El anuncio fue eliminado", Nothing)
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Anuncio eliminado", "El anuncio fue eliminado", Nothing)
                 actualizar()
             End If
 

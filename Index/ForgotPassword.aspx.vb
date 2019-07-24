@@ -12,7 +12,7 @@ Public Class ForgotPassword
         oUser.email = inputEmail.Value
         oUser = BLL.Usuario.BuscarUsuario(oUser)
         If Not oUser Is Nothing Then
-            If oUser.estado = "RESET" Then
+            If oUser.estado.Trim = "RESET" Then
                 'error no puedo resetear el password, verificar mail para el enlace
                 TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error!", "Por favor verifique su casilla de email para el reseteo de contraseña", Nothing)
             Else
