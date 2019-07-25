@@ -42,7 +42,8 @@
                     Dim b As New BE.Bitacora
                     b.criticidad = 1
                     b.evento = "Respuesta de chat id:" & id.Value
-                    b.usuario = Request.QueryString("operacion")
+                    ' b.usuario = Request.QueryString("operacion")
+                    b.usuario = Session("currentUser").email
                     BLL.Bitacora.RegistarEvento(b)
                 End If
             Else

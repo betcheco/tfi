@@ -8,7 +8,7 @@
 
         <div style="display: flex; flex-direction: column; height: 100%; padding: 2vw">
 
-        <asp:Label runat="server" class="page-title">Chat</asp:Label>
+        
         <div class="form-control h-75" style="display: flex; flex-direction: column; padding: 1vw; flex-grow: 1; overflow-y: scroll;">
             <div id="divMensajes" runat="server" style="flex-direction: column;">
             </div>
