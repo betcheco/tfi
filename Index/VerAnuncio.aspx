@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="col-lg-9">
+     <div class="col-12">
 
-          <div class="card mt-4">
+          <div class="card mt-4 text-center">
             <%--<img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">--%>
-               <asp:Image ID="img" class="card-img-top img-fluid" runat="server" Width="300px" ImageUrl='<%# Eval("img")%>'/>
+               <asp:Image ID="img" class="card-img-top img-fluid" runat="server" Width="300px" style="align-self:center;" ImageUrl='<%# Eval("img")%>'/>
             
             <div class="card-body">
               <h3 class="card-title" id="lblTitulo" runat="server"></h3>
