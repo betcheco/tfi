@@ -176,4 +176,8 @@
 
         </asp:Repeater>
          </div>
+
+      <div class="row mt-2 d-flex justify-content-center">
+        <a class="d-block small mt-3" href="Clasificados.aspx">Volver</a>
+    </div>
 </asp:Content>

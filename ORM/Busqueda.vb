@@ -17,6 +17,12 @@
                     b.url = row("pagina")
                     b.palabra = row("palabra")
                     b.publico = row("publico")
+                    If IsDBNull(row("permiso")) Then
+                        b.permiso = Nothing
+                    Else
+                        b.permiso = row("permiso")
+                    End If
+
                     lista.add(b)
                 Next
             End If

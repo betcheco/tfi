@@ -50,7 +50,7 @@ Public Class Busqueda
             TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! " & ex.Message, "Home.aspx")
         End Try
         If listaAMostrar.Count > 0 Then
-            mensaje.InnerHtml = "Resultados para: " & Request.QueryString("palabra")
+            mensaje.InnerHtml = listaAMostrar.Count & " resultados para: " & Request.QueryString("palabra")
             divResultados.Visible = True
             Repeater1.DataSource = listaAMostrar
             Repeater1.DataBind()
