@@ -77,6 +77,15 @@ Partial Public Class Clasificados
     Protected WithEvents rpt1 As Global.System.Web.UI.WebControls.Repeater
     
     '''<summary>
+    '''rpt2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rpt2 As Global.System.Web.UI.WebControls.Repeater
+    
+    '''<summary>
     '''Master property.
     '''</summary>
     '''<remarks>

@@ -39,4 +39,36 @@
             Response.Redirect("VerAnuncio.aspx?anuncio=" & e.CommandArgument)
         End If
     End Sub
+
+
+    Private Sub cargarCategorias()
+        Dim listCategorias As New List(Of BE.Categoria)
+        Try
+            listCategorias = BLL.Categoria.Listar
+            Session("listaCategoriasComparar") = listCategorias
+            Dim lista As New List(Of String)
+            For Each cat In listCategorias
+                lista.Add(cat.nombre)
+            Next
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Sub
+
+    Function idCategoria(idcat As Integer) As String
+        Dim nombre As Integer
+        Try
+            For Each cat In Session("listaCategoriasComparar")
+                If idcat = cat.id Then
+                    nombre = cat.nombre.Trim
+                End If
+            Next
+            Return nombre
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
 End Class

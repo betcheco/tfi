@@ -95,14 +95,30 @@
                 Dim listaAnuncios As List(Of BE.Anuncio)
                 listaAnuncios = BLL.Anuncio.Filtrar(cat, precioMin, precioMax)
                 If listaAnuncios.Count > 0 Then
+                    'If listaAnuncios.Count > 3 Then
                     Me.rpt1.DataSource = listaAnuncios
-                    Me.rpt1.DataBind()
+                        Me.rpt1.DataBind()
+                    'Me.rpt2.Visible = False
+                    'Me.rpt1.Visible = True
                     Return
+                    'Else
+                    '    Me.rpt2.DataSource = Nothing
+                    '    Me.rpt2.DataBind()
+
+                    '    Me.rpt2.DataSource = listaAnuncios
+                    '    Me.rpt2.DataBind()
+                    '    Me.rpt1.Visible = False
+                    '    Me.rpt2.Visible = True
+
+                    '    Return
+                    'End If
+
                 Else
                     TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No se encontro ningun articulo con esas caracteristicas ", "Clasificados.aspx")
                     Return
                 End If
-
+            Else
+                Response.Redirect("Clasificados.aspx")
             End If
 
 

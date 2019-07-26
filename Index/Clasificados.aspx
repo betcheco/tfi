@@ -42,6 +42,13 @@
 	text-align: center;
 	position: relative;
 }
+
+.images_2_of_4 {
+	width: 40%;
+	padding: 1.5%;
+	text-align: center;
+	position: relative;
+}
 .images_1_of_4  img {
 	max-width: 100%;
 }
@@ -102,7 +109,7 @@
   width: 25%;
 }
 
-.articulo:hover {
+.grid_1_of_4:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -163,11 +170,11 @@
 
           <hr />
 
-          <div class="row mt-4">
+          <div class="row mt-4 w-100">
                 <asp:Repeater ID="rpt1" runat="server">
                     <ItemTemplate>
-                       <div class="grid_1_of_4 images_1_of_4 mx-auto" runat="server" >
-                           <asp:Image ID="Image1" runat="server" style="width=200px; height=200px " ImageUrl='<%# Eval("imagen")%>' />
+                       <div  class="grid_1_of_4 images_1_of_4 mx-auto" runat="server" >
+                           <asp:Image ID="Image1" runat="server" style="width:200px; height:200px " ImageUrl='<%# Eval("imagen")%>' />
                            <h2>
                                <p><span class="rupees">
                                    <asp:Label ID="lblNombre" runat="server" Text='<%# Eval("titulo")%>'></asp:Label></span></p>
@@ -180,7 +187,7 @@
                                    <input id="chkCompare" name="chkCompare" runat="server" type="checkbox" />
                                    <%--<asp:button ID="chkCompare" runat="server" OnCommand="ValidarCommand"  CommandName="CheckProduct"  CommandArgument='<%# Eval("id") %>'/>--%>
                                    <label for="chkCompare">Comparar</label>
-                                   <asp:label id="idAnuncio"  runat="server" Text='<%# Eval("id")%>' Visible="false"></asp:label>
+                                   <asp:Label ID="idAnuncio" runat="server" Text='<%# Eval("id")%>' Visible="false"></asp:Label>
                                    <h4>
                                        <asp:Button CssClass="btn btn-primary btn-sm" ID="btnVer" runat="server" Height="25px" Style="font-size: 12px; text-align: center;" Text="Ver" OnCommand="ValidarCommand" CommandName="ShowProduct" CommandArgument='<%# Eval("id")%>' />
 
@@ -196,8 +203,40 @@
 
         </asp:Repeater>
 
+                <asp:Repeater ID="rpt2" runat="server">
+                    <ItemTemplate>
+                       <div  class="grid_1_of_4 images_2_of_4 mx-auto" runat="server" >
+                           <asp:Image ID="Image1" runat="server" style="width:200px; height:200px " ImageUrl='<%# Eval("imagen")%>' />
+                           <h2>
+                               <p><span class="rupees">
+                                   <asp:Label ID="lblNombre" runat="server" Text='<%# Eval("titulo")%>'></asp:Label></span></p>
+                           </h2>
+                           <div class="price-details">
+                               <div class="price-number">
+                                   <p><span class="rupees">$<asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("precio")%>'></asp:Label></span></p>
+                               </div>
+                               <div class="add-cart" runat="server">
+                                   <input id="chkCompare" name="chkCompare" runat="server" type="checkbox" />
+                                   <%--<asp:button ID="chkCompare" runat="server" OnCommand="ValidarCommand"  CommandName="CheckProduct"  CommandArgument='<%# Eval("id") %>'/>--%>
+                                   <label for="chkCompare">Comparar</label>
+                                   <asp:Label ID="idAnuncio" runat="server" Text='<%# Eval("id")%>' Visible="false"></asp:Label>
+                                   <h4>
+                                       <asp:Button CssClass="btn btn-primary btn-sm" ID="btnVer" runat="server" Height="25px" Style="font-size: 12px; text-align: center;" Text="Ver" OnCommand="ValidarCommand" CommandName="ShowProduct" CommandArgument='<%# Eval("id")%>' />
 
+                                       <asp:Button CssClass="btn btn-primary btn-sm" ID="btnAddCart" runat="server" Height="25px" Style="font-size: 12px; text-align: center;" Text="Comprar" OnCommand="ValidarCommand" CommandName="AddCart" CommandArgument='<%# Eval("id") %>' />
+                                       <%--<a href="#" class="button">Añadir Compra</a>--%></h4>
+                               </div>
+                               <div class="clear"></div>
+                           </div>
+
+                       </div>
+
+                   </ItemTemplate> 
+
+        </asp:Repeater>
           </div>
+
+
           <!-- /.row -->
 
         </div>
@@ -206,7 +245,7 @@
       </div>
       <!-- /.row -->
 
-    </div>
+  
     <!-- /.container -->
         </main>
 
