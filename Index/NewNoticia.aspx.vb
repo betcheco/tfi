@@ -112,11 +112,12 @@
                         bitacora.evento = "Se creo la noticia " & noticia.titulo
                         bitacora.usuario = "User"
                         TryCast(Me.Master, masterPrincipal).mostrarMesaje("Noticia fue creada con exito", "La noticia fue creada exitosamente", "ABMNoticias.aspx")
-                        Dim listaNews As New List(Of BE.Newsletter)
-                        listaNews = BLL.Newsletter.listar(noticia.id_categoria)
-                        For Each n In listaNews
-                            Helpers.sendMail.enviarNewsletter(noticia.titulo, noticia.desc_corta, noticia.id, "http://localhost:49915/" & noticia.imagen, n.email)
-                        Next
+                        'ENVIO DE NEWSLETTER
+                        'Dim listaNews As New List(Of BE.Newsletter)
+                        'listaNews = BLL.Newsletter.listar(noticia.id_categoria)
+                        'For Each n In listaNews
+                        '    Helpers.sendMail.enviarNewsletter(noticia.titulo, noticia.desc_corta, noticia.id, "http://localhost:49915/" & noticia.imagen, n.email)
+                        'Next
 
                     End If
 

@@ -33,7 +33,9 @@
                     bitacora.evento = "Se restauro la db del backup: " & backup.name
                     bitacora.usuario = ""
                     BLL.Bitacora.RegistarEvento(bitacora)
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Exito", "Restore exitoso", "Home.aspx")
                 Catch ex As Exception
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Sucedio un error al realizar el restore", "Restore.aspx")
                     Console.WriteLine("Error en UI " & ex.Message)
                 End Try
 

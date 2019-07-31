@@ -3,9 +3,9 @@
 Public Class Backup
     Shared Function RealizarBackup(pBackup As BE.Backup) As Boolean
         ' Dim mstrConexion As String = "Data Source=APU-PC\MSSQL;Initial Catalog=GolfTracking;Integrated Security=True"
-        'Dim mstrConexion As String = "Data Source=.\SQL_UAI;Initial Catalog=master;Integrated Security=True"
+        Dim mstrConexion As String = "Data Source=.\SQL_UAI;Initial Catalog=master;Integrated Security=True"
         'Lenovo
-        Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=GolfTracking;Integrated Security=True"
+        ' Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=GolfTracking;Integrated Security=True"
         Dim mCon As SqlConnection
         Dim sqlBackup As String = "BACKUP DATABASE [GolfTracking] TO DISK = 'C:\Temp\" & pBackup.name & ".bak'"
         Try

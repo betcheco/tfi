@@ -57,7 +57,7 @@ Public Class Register
                         Dim msg = "<br /><br />Por favor ingresa en este link para activar tu cuenta"
                         msg += "<br /><a href = 'http://localhost:49915/RegisterConfirm.aspx?id=" & newUser.token + "'>Click aqui.</a>"
 
-                        Helpers.sendMail.send("Activacion de registro", CreateBody(newUser.nombre, "Activar usuario", msg), newUser.email)
+                        ' Helpers.sendMail.send("Activacion de registro", CreateBody(newUser.nombre, "Activar usuario", msg), newUser.email)
                         'SendActivationEmail(newUser)
                     Else
                         ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "errorRegistro();", True)

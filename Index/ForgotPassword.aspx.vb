@@ -24,12 +24,12 @@ Public Class ForgotPassword
                     bitacora.evento = "Solicitud blanqueo de contraseña"
                     bitacora.criticidad = 3
                     BLL.Bitacora.RegistarEvento(bitacora)
-                    linkResetPwd.Attributes.Add("href", "ResetPassword.aspx?id=" & oUser.token)
+                    ' linkResetPwd.Attributes.Add("href", "ResetPassword.aspx?id=" & oUser.token)
                     divMail.Visible = False
                     success.Visible = True
                     Dim msg = "<br /><br />Por favor ingresa en este link "
                     msg += "<br /><a href = 'http://localhost:49915/ResetPassword.aspx?id=" & oUser.token + "'>Click aqui.</a>"
-                    Helpers.sendMail.send("Reestablecer contraseña", CreateBody(oUser.nombre, "Reseteo Contraseña", msg), oUser.email)
+                    ' Helpers.sendMail.send("Reestablecer contraseña", CreateBody(oUser.nombre, "Reseteo Contraseña", msg), oUser.email)
                     'Response.Redirect("Home.aspx")
                 Else
                     divMail.Visible = False
