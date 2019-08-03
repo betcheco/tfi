@@ -15,14 +15,16 @@ Public Class Register
             If (inputconfirmPassword.Value = inputPassword.Value) Then
                 If tycCheck.Checked Then
                     If inputPassword.Value.Length < 8 Then
-                        ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','La contraseña debe tener al menos 8 caracteres');", True)
-                        alertDanger.Visible = True
+                        'ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','La contraseña debe tener al menos 8 caracteres');", True)
+                        'alertDanger.Visible = True
+                        modalMsg.mostrar("Error", "La contraseña debe tener al menos 8 caracteres", Nothing)
                         Return
                     End If
 
                     If Not ctrlGoogleReCaptcha.Validate Then
-                        ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','Captcha no válido');", True)
-                        alertDanger.Visible = True
+                        'ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','Captcha no válido');", True)
+                        'alertDanger.Visible = True
+                        modalMsg.mostrar("Error", "Captcha no válido", Nothing)
                         Return
                     End If
                     newUser.nombre = inputfirstName.Value
@@ -49,7 +51,9 @@ Public Class Register
 
                         linkConfirm.Attributes.Add("href", "RegisterConfirm.aspx?id=" & newUser.token)
 
-                        ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "openModalSuc();", True)
+                        'ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "openModalSuc();", True)
+                        ' TryCast(Me.Master, masterPrincipal).mostrarMesaje("Registro exitoso", "Gracias por registrarse, en instantes recibira un mail a la direccion registrada para finalizar el proceso.", Nothing)
+                        modalMsg.mostrar("Registro exitoso", "Gracias por registrarse, en instantes recibira un mail a la direccion registrada para finalizar el proceso.", "Home.aspx")
                         bitacora.criticidad = 3
                         bitacora.evento = "Se registro el usuario: " & newUser.email
                         bitacora.usuario = newUser.email
@@ -60,9 +64,11 @@ Public Class Register
                         ' Helpers.sendMail.send("Activacion de registro", CreateBody(newUser.nombre, "Activar usuario", msg), newUser.email)
                         'SendActivationEmail(newUser)
                     Else
-                        ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "errorRegistro();", True)
+                        'ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "errorRegistro();", True)
+                        modalMsg.mostrar("Error", "Hubo un eror durante el proceso de registracion", Nothing)
+                        ' TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Hubo un eror durante el proceso de registracion", Nothing)
                         bitacora.criticidad = 3
-                        bitacora.evento = "Sucedio un error en el registro del usuario: " & newUser.email
+                        bitacora.evento = "Sucedio un error en el registro del usuario ya existe usuario registrado con mismo email: " & newUser.email
                         bitacora.usuario = newUser.email
                         BLL.Bitacora.RegistarEvento(bitacora)
                     End If
@@ -73,13 +79,15 @@ Public Class Register
 
                     ' Response.Redirect("Home.aspx")
                 Else
-                    ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','Debe aceptar los terminos y condiciones');", True)
-                    alertDanger.Visible = True
+                    ' ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','Debe aceptar los terminos y condiciones');", True)
+                    'alertDanger.Visible = True
+                    modalMsg.mostrar("Error", "Debe aceptar los terminos y condiciones", Nothing)
                     'Mensaje porfavor acepta los terminos y condiciones
                 End If
             Else
-                ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','Las contraseñas no coinciden');", True)
-                alertDanger.Visible = True
+                ' ScriptManager.RegisterStartupScript(Me, Me.GetType, System.Guid.NewGuid().ToString(), "setAlertText('danger','Las contraseñas no coinciden');", True)
+                '  alertDanger.Visible = True
+                modalMsg.mostrar("Error", "Las contraseñas no coinciden", Nothing)
                 'Mensaje las password no coinciden
 
             End If

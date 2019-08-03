@@ -19,17 +19,24 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+
+    <style>
+        .texto-azul{
+            color:#5a76bd;
+            font-family: 'Hind Madurai', sans-serif;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
     <main role="main">
        
-          <div class="py-5 text-center" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcFbd5_lk1TpzbsEUmrk4hn51QiWKyUzzswFy-ruu9loqTFAVu1Q');background-size:cover;background-repeat:no-repeat;">
-    <div class="container py-5" >
+          <div class="py-5 text-center" style="background-image:url(/img/home_golf.jpg) ;background-size:cover;background-repeat:no-repeat;background-position:center center;background-attachment:fixed;">
+    <div class="container" >
       <div class="row">
-        <div class="col-md-12">
-          <h1 class="display-3 mb-4 text-secondary">GolfTracking</h1>
-          <p class="lead mb-5">Somos la primera plataforma web de Argentina dedicada exclusivamente a los amantes del deporte del Golf.</p>
+        <div class="container col-md-12">
+          <h1 class="mb-4 text-light" style="font-family: 'Josefin Sans', sans-serif;">GolfTracking</h1>
+          <p class="texto-azul"  >Somos la primera plataforma web de Argentina dedicada exclusivamente a los amantes del deporte del Golf.</p>
           <a href="#mision" class="btn btn-lg mx-1 btn-secondary">Mision</a>
           <a href="#vision" class="btn btn-lg btn-primary mx-1">Vision</a>
         </div>
@@ -40,8 +47,8 @@
     <div class="container"  id="quienessomos">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="text-center display-3 text-primary">¿Quienes somos?</h1>
-          <p class="">GolfTracking, es una start-up que nace de la mano de 2 amigos con 2 pasiones en común: las nuevas tecnologías y el golf.
+          <h1 class="text-center text-secondary" style="font-family: 'Josefin Sans', sans-serif;">¿Quienes somos?</h1>
+          <p class="" style="font-family: 'Hind Madurai', sans-serif;">GolfTracking, es una start-up que nace de la mano de 2 amigos con 2 pasiones en común: las nuevas tecnologías y el golf.
               Actualmente los practicantes del deporte de golf, deben anotar sus golpes en una tarjeta para su registro personal. Estas tarjetas de juego en papel, son difíciles de perdurar en el tiempo, si el papel es de mala calidad se arruina rápidamente sino, se pueden perder fácilmente, además cuesta tiempo y espacio en archivarlas de manera prolija para poder compararlas en un futuro y poder sacar conclusiones sobre el juego. 
 Nuestro negocio apunta a brindar un servicio a todos los jugadores y aficionados al golf, facilitándoles el registro del juego y ofreciendo un espacio a la comunidad golfista de intercambio de productos. 
 Se ofrece la posibilidad de digitalizar estas anotaciones a través de una aplicación para dispositivos móviles, en la cual cada jugador podrá llevar registro de sus juegos, ver su progreso en el tiempo. 
@@ -51,14 +58,14 @@ De manera ampliada sobre una  plataforma web podrá a la vez, publicar su equipa
       </div>
     </div>
   </div>
-  <div class="py-5 text-center bg-secondary" >
+  <div class="py-5 text-center" style="background-image:url(/img/home_golf.jpg) ;background-size:cover;background-repeat:no-repeat;background-position:center center;background-attachment:fixed;" >
     <div class="container" id="mision">
       <div class="row">
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-12">
-              <h1 class="text-light">Mision</h1>
-              <p class="text-light">Poder promover la práctica del deporte del golf, inspirar aquellos quienes lo practican, fomentar y hacer más inclusivo su ambiente. GolfTracking, nace de la mano de unos amigos amantes de golf, jugadores aficionados que se propusieron mejorar la práctica del golf.</p>
+              <h1 class="text-light" style="font-family: 'Josefin Sans', sans-serif;" >Mision</h1>
+              <p class="texto-azul">Poder promover la práctica del deporte del golf, inspirar aquellos quienes lo practican, fomentar y hacer más inclusivo su ambiente. GolfTracking, nace de la mano de unos amigos amantes de golf, jugadores aficionados que se propusieron mejorar la práctica del golf.</p>
             </div>
           </div>
         </div>
@@ -69,8 +76,8 @@ De manera ampliada sobre una  plataforma web podrá a la vez, publicar su equipa
     <div class="container" id="vision">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="text-center display-3 text-primary">Vision</h1>
-          <p class="">Generando una plataforma amigable con el usuario, fácil de usar e intuitiva. Nos posicionaremos como la plataforma Nro 1 del ambiente del golf, y desarrollaremos más y mejores funcionalidades y servicios para ofrecer a los jugadores.</p>
+          <h1 class="text-center text-secondary" style="font-family: 'Josefin Sans', sans-serif;">Vision</h1>
+          <p class="" style="font-family: 'Hind Madurai', sans-serif;">Generando una plataforma amigable con el usuario, fácil de usar e intuitiva. Nos posicionaremos como la plataforma Nro 1 del ambiente del golf, y desarrollaremos más y mejores funcionalidades y servicios para ofrecer a los jugadores.</p>
         </div>
       </div>
     </div>
@@ -80,7 +87,7 @@ De manera ampliada sobre una  plataforma web podrá a la vez, publicar su equipa
       
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © GolfTracking 2018</span>
+              <span>Copyright © GolfTracking 2019</span>
                
             </div>
               <div class="text-center my-auto">

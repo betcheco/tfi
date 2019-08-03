@@ -145,7 +145,7 @@ Public Class Usuario
             htable.Add("@Token", pUsuario.token)
             'ETC
 
-            Return d.Escribir("sp_alta_usuario", htable)
+            Return d.EscribirInt("sp_alta_usuario", htable)
         Catch ex As Exception
             Throw ex
 
