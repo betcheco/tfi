@@ -8,11 +8,17 @@ Public Class Publicidad
 
 
         If Not (Page.IsPostBack) Then
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnPublicidadSideBar") Then
-                Actualizar()
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnPublicidadSideBar") Then
+                    Actualizar()
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                End If
+
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
             End If
+
 
         End If
     End Sub
@@ -48,9 +54,11 @@ Public Class Publicidad
         btnNuevo.Visible = grd.Rows.Count > 0
 
         btnNuevo_Click(Nothing, Nothing)
+        Me.divDatosEncuesta.Visible = False
     End Sub
 
     Protected Sub grd_SelectedIndexChanging(sender As Object, e As GridViewSelectEventArgs) Handles grd.SelectedIndexChanging
+        Me.divDatosEncuesta.Visible = True
         'Dim r As GridViewRow = Me.grd.Rows(e.NewSelectedIndex)
         ViewState("i") = e.NewSelectedIndex
 
@@ -137,6 +145,7 @@ Public Class Publicidad
     End Sub
 
     Protected Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        Me.divDatosEncuesta.Visible = True
         ViewState("i") = -1
 
         Me.txtURL.Text = ""

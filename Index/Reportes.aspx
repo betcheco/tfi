@@ -200,7 +200,7 @@ color:#f0ad4e;
         </div>
         <div id="divFichasDeOpinion_Content" class="row justify-content-center" runat="server">
             <div id="divPreguntaFichaDeOpinion" runat="server" style="width: 100%; font-size: 4vh; font-weight: bold; text-align:center" />
-            <div id="divChartFichaDeOpinion" runat="server" style="width: 600px; height: 600px">
+            <div id="divChartFichaDeOpinion"  runat="server" style="width: 100%; height: 600px; align-self:center; text-align:center" class="justify-content-center">
                 <asp:Chart EnableViewState="true" ID="chartFichaDeOpinion" runat="server" Style="max-width: 100%">
                     <Series>
                         <asp:Series Name="Series1"></asp:Series>
@@ -296,36 +296,36 @@ color:#f0ad4e;
         </div>
 
         <!--Grafico-->
-        <div id="divGanancias_Content" class="container mt-2" runat="server">
-           <div class="row justify-content-center">
-                <asp:Chart EnableViewState="true" runat="server" CssClass="text-center" ID="ChartGanancias">
-                    <Series>
-                        <asp:Series Name="SeriesGanancias"></asp:Series>
-                    </Series>
-                    <ChartAreas>
-                        <asp:ChartArea Name="ChartAreaGanancias"></asp:ChartArea>
-                    </ChartAreas>
-                </asp:Chart>
-           </div> 
-            <div class="row justify-content-center">
-                <div id="divGananciasResultados" runat="server" class="mt-3 text-center" visible="false">
-                    <asp:Label runat="server">Total: $</asp:Label>
-                    <asp:Label runat="server" ID="lblTotalMensual" class="mt-3"></asp:Label>
-                    <div class="row justify-content-center">
-                        <asp:Button runat="server" ID="btnVerListado" CssClass="btn btn-primary mt-1 text-center" Text="Ver Listado" />
-                    </div>
+    <div id="divGanancias_Content" class="container mt-2" runat="server">
+        <div class="row justify-content-center">
+            <asp:Chart EnableViewState="true" runat="server" CssClass="text-center" ID="ChartGanancias">
+                <Series>
+                    <asp:Series Name="SeriesGanancias"></asp:Series>
+                </Series>
+                <ChartAreas>
+                    <asp:ChartArea Name="ChartAreaGanancias"></asp:ChartArea>
+                </ChartAreas>
+            </asp:Chart>
+        </div>
+        <div class="row justify-content-center">
+            <div id="divGananciasResultados" runat="server" class="mt-3 text-center" visible="false">
+                <asp:Label runat="server">Total: $</asp:Label>
+                <asp:Label runat="server" ID="lblTotalMensual" class="mt-3"></asp:Label>
+                <div class="row justify-content-center">
+                    <asp:Button runat="server" ID="btnVerListado" CssClass="btn btn-primary mt-1 text-center" Text="Ver Listado" />
                 </div>
             </div>
-            <div id="divPreguntaGanancias" runat="server" class=" justify-content-center" style="width: 100%; font-size: 4vh; font-weight: bold" />
-            <asp:GridView ID="gridGanacias" runat="server" class="table table-hover w-100 mt-4" BorderWidth="2" AutoGenerateColumns="False" Visible="False">
-                <Columns>
-                    <asp:BoundField AccessibleHeaderText="Nro" HeaderText="Nro" DataField="nro" />
-                    <asp:BoundField AccessibleHeaderText="Detalle" HeaderText="Detalle" DataField="detalle" />
-                    <asp:BoundField AccessibleHeaderText="Fecha" HeaderText="Fecha" DataField="fecha" />
-                    <asp:BoundField AccessibleHeaderText="Monto" HeaderText="Monto" DataField="monto" />
-                </Columns>
-            </asp:GridView>
         </div>
+        <div id="divPreguntaGanancias" runat="server" class=" justify-content-center" style="width: 100%; font-size: 4vh; font-weight: bold" />
+        <asp:GridView ID="gridGanacias" runat="server" class="table table-hover w-100 mt-4" BorderWidth="2" AutoGenerateColumns="False" Visible="False">
+            <Columns>
+                <asp:BoundField AccessibleHeaderText="Nro" HeaderText="Nro" DataField="nro" />
+                <asp:BoundField AccessibleHeaderText="Detalle" HeaderText="Detalle" DataField="detalle" />
+                <asp:BoundField AccessibleHeaderText="Fecha" HeaderText="Fecha" DataField="fecha" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:BoundField AccessibleHeaderText="Monto" HeaderText="Monto" DataField="monto" />
+            </Columns>
+        </asp:GridView>
+    </div>
 
    
 

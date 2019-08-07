@@ -36,6 +36,8 @@
                 Catch ex As Exception
                     TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Error cargando el anuncio " & ex.Message, Nothing)
                 End Try
+            Else
+                Response.Redirect("Clasificados.aspx")
             End If
         End If
     End Sub

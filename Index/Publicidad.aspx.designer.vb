@@ -32,6 +32,15 @@ Partial Public Class Publicidad
     Protected WithEvents btnNuevo As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''divDatosEncuesta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents divDatosEncuesta As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''txtTitle control.
     '''</summary>
     '''<remarks>

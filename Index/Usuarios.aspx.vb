@@ -5,7 +5,12 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
-            Actualizar()
+            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegUsuariosSideBar") Then
+                Actualizar()
+            Else
+                Response.Redirect("Home.aspx")
+            End If
+
         End If
     End Sub
 
@@ -31,6 +36,7 @@
             bitacora.evento = "Se elimino el usuario: " & user.email
             bitacora.usuario = "prueba"
             BLL.Bitacora.RegistarEvento(bitacora)
+            TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Se elimino el usuario " & user.email & " con exito", "Usuarios.aspx")
             Actualizar()
         Else
             'error al eliminar el usuario

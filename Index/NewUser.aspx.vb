@@ -10,38 +10,43 @@ Public Class NewUser
 
 
         If Not (Page.IsPostBack) Then
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegUsuariosSideBar") Then
 
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegUsuariosSideBar") Then
+                    'actualizo grilla roles
+                    grilla.Cargar(BLL.Rol.Listar())
 
-                'actualizo grilla roles
-                grilla.Cargar(BLL.Rol.Listar())
+                    If Request.QueryString.HasKeys Then
+                        btnCrear.Text = "Guardar"
+                        titulo.InnerText = "Modificar Usuario"
+                        modUser = New BE.Usuario
+                        modUser.email = Request.QueryString("user")
+                        modUser = BLL.Usuario.BuscarUsuario(modUser)
+                        inputEmail.Value = modUser.email
+                        inputEmail.Disabled = True
+                        inputfirstName.Value = modUser.nombre
+                        inputlastName.Value = modUser.apellido
+                        stateDropdownlist.Text = Trim(modUser.estado)
+                        divEstado.Visible = True
+                        'agregar control para el estado
+                        'Y recorrer lista de roles
+                        If Not modUser.roles Is Nothing Then
+                            grilla.cargarRoles(modUser.roles)
+                        End If
 
-                If Request.QueryString.HasKeys Then
-                    btnCrear.Text = "Guardar"
-                    titulo.InnerText = "Modificar Usuario"
-                    modUser = New BE.Usuario
-                    modUser.email = Request.QueryString("user")
-                    modUser = BLL.Usuario.BuscarUsuario(modUser)
-                    inputEmail.Value = modUser.email
-                    inputEmail.Disabled = True
-                    inputfirstName.Value = modUser.nombre
-                    inputlastName.Value = modUser.apellido
-                    stateDropdownlist.Text = Trim(modUser.estado)
-                    divEstado.Visible = True
-                    'agregar control para el estado
-                    'Y recorrer lista de roles
-                    If Not modUser.roles Is Nothing Then
-                        grilla.cargarRoles(modUser.roles)
+
                     End If
 
 
+
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
                 End If
-
-
-
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
             End If
+
+
 
         Else
             If Request.QueryString.HasKeys Then

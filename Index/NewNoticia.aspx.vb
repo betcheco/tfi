@@ -7,27 +7,33 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
             Try
-                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMNoticasSideBar") Then
-                    cargarCategorias()
-                    If Request.QueryString.HasKeys Then
-                        Session("modificarNoticia") = True
-                        titulo.InnerText = "Modificar Noticia"
-                        noticia.id = Request.QueryString("noticia")
-                        noticia = BLL.Noticia.ObtenerNoticia(noticia)
-                        inputTitulo.Value = noticia.titulo
-                        inputDescCorta.Value = noticia.desc_corta
-                        inputDescLarga.Value = noticia.desc_larga
-                        fhasta.Text = noticia.fecha_hasta
-                        Text1.Text = noticia.fecha_desde
-                        img.ImageUrl = noticia.imagen
-                        ddCategoria.SelectedValue = BLL.Categoria.obtenerCategoria(noticia.id_categoria).nombre
-                        Session("modNoticia") = noticia
+                If Not Session("currentUser") Is Nothing Then
+                    If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMNoticasSideBar") Then
+                        cargarCategorias()
+                        If Request.QueryString.HasKeys Then
+                            Session("modificarNoticia") = True
+                            titulo.InnerText = "Modificar Noticia"
+                            noticia.id = Request.QueryString("noticia")
+                            noticia = BLL.Noticia.ObtenerNoticia(noticia)
+                            inputTitulo.Value = noticia.titulo
+                            inputDescCorta.Value = noticia.desc_corta
+                            inputDescLarga.Value = noticia.desc_larga
+                            fhasta.Text = noticia.fecha_hasta
+                            Text1.Text = noticia.fecha_desde
+                            img.ImageUrl = noticia.imagen
+                            ddCategoria.SelectedValue = BLL.Categoria.obtenerCategoria(noticia.id_categoria).nombre
+                            Session("modNoticia") = noticia
+                        Else
+                            Session("modificarNoticia") = False
+                        End If
                     Else
-                        Session("modificarNoticia") = False
-                    End If
-                Else
                         TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
                     End If
+                Else
+                    Response.Redirect("Home.aspx")
+
+                End If
+
 
 
 

@@ -7,9 +7,9 @@
   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-   <h2>Consultar Bitacora</h2>
-  
+    <div class="text-center">
+        <h5>Consultar Bitacora</h5>
+    </div>
     <!--Filters-->
     <div class="py-1">
         <div class="container-fluid mx-auto">
@@ -80,23 +80,23 @@
 
    <!--Grilla Bitacora-->
     <div class="table-responsive mt-auto py-2">
-    <asp:gridview runat="server" id="bitacoraGrid" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-sm" DataKeyNames="id" Width="100%" AllowPaging="True" >
+    <asp:gridview runat="server" id="bitacoraGrid" AutoGenerateColumns="False" class="table table-striped table-light table-hover w-100" DataKeyNames="id" Width="100%" AllowPaging="True" border="2">
           <Columns>
               <asp:BoundField DataField="id" HeaderText="Id" />
             <asp:BoundField DataField="fecha" HeaderText="Fecha" ApplyFormatInEditMode="True">
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="200px" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle"  />
             </asp:BoundField>
             <asp:BoundField DataField="usuario" HeaderText="Usuario">
-                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="100px" />
+                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle"  />
             </asp:BoundField>
           <asp:BoundField DataField="evento" HeaderText="Evento" ApplyFormatInEditMode="True">
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="200px" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:BoundField DataField="criticidad" HeaderText="Criticidad">
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="100px" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle"  />
             </asp:BoundField>
             <asp:BoundField DataField="descripcion" HeaderText="Descripcion">
-                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="400px" />
+                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle"/>
             </asp:BoundField>
         </Columns>
     </asp:gridview>

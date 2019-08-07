@@ -5,22 +5,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container">
-        <div id="divCampos" runat="server" class="form-group row mt-3">
-            <div class="col-3">
-                <asp:Label runat="server" for="txtDescription">Pregunta:</asp:Label>
-                <asp:TextBox ID="txtDescription" runat="server" class="form-control" placeholder="Pregunta de la encuesta" required MaxLength="50"></asp:TextBox>
+        <div class="card card-register mx-auto">
+            <div class="card-header text-center h5" runat="server">Encuesta</div>
+            <div class="card-body">
+            <div id="divCampos" runat="server" class="form-group">
+                <div class="form-label-group">
+                    <div class="form-row">
+                        <asp:Label runat="server" for="txtDescription">Pregunta:</asp:Label>
+                        <asp:TextBox ID="txtDescription" runat="server" class="form-control" placeholder="Pregunta de la encuesta" required MaxLength="50"></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6 mt-2">
+                            <div class="form-label-group">
+                        <asp:Label runat="server" for="chkActivo">Ficha de opinion:</asp:Label>
+                        <asp:CheckBox ID="chkFOpinion" runat="server" class="form-control" Text="Ficha de Opinion"></asp:CheckBox>
+                                </div>
+                            </div>
+                         <div class="col-md-6 mt-3">
+                             <div class="form-label-group">
+                        <asp:Label runat="server" for="inputVencimiento">Vencimiento:</asp:Label>
+                        <asp:TextBox ID="inputVencimiento" runat="server" TextMode="Date"></asp:TextBox>
+                                 </div>
+                             </div>
+                    </div>
+               
+
+                
             </div>
-            <div class="col-3">
-                <asp:Label runat="server" for="chkActivo">Ficha de opinion:</asp:Label>
-                <asp:CheckBox ID="chkFOpinion" runat="server" class="form-control" Text="Ficha de Opinion"></asp:CheckBox>
-            </div>
-            <div class="col-3">
-                <asp:Label runat="server" for="inputVencimiento">Vencimiento:</asp:Label>
-                <asp:TextBox ID="inputVencimiento" runat="server" TextMode="Date"></asp:TextBox>
-            </div>
-        </div>
-        <div id="divContOpciones" runat="server" class="form-group row mt-3">
-            <div class="col-6">
+        <div id="divContOpciones" runat="server" class="form-group mt-3">
+            <div class="form-row">
                 <asp:Label runat="server" for="divOpciones">Opciones:</asp:Label>
                 <div runat="server" id="divOpciones" class="form-control" style="display: flex; flex-direction: column; height: auto">
                     <asp:Repeater ID="rptOpciones" runat="server">
@@ -53,11 +69,19 @@
                     
             </div>
         </div>
-        <div id="divBtnGuardar" runat="server" class="form-group row mt-5">
-            <div class="col-3">
+                </div>
+            </div>
+
+
+
+</div>
+        <div id="divBtnGuardar" runat="server" class="row mt-2 d-flex justify-content-center">
+            <%--<div class="col-3">--%>
                 <asp:Button class="btn btn-primary" ID="btnGuardar" runat="server" Text="Guardar" />
+            </div>
+        <div class="row mt-2 d-flex justify-content-center">
                 <a class="d-block small mt-3" href="ABMEncuestas.aspx">Volver</a>
-            </div> 
+            <%--</div>--%> 
             
         </div>
 
@@ -76,7 +100,7 @@
 
 
 
-    </div>
+    
 
  <%--   <div class="row mt-2 d-flex justify-content-center">
                 <a class="d-block small mt-3" href="ABMEncuestas.aspx">Volver</a>

@@ -3,27 +3,33 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegBitacoraSideBar") Then
+                    inputCriticidad.SelectedValue = 0
+                    Session("filtroFdesde") = Nothing
+                    Session("filtroFhasta") = Nothing
+                    Session("filtroUser") = Nothing
+                    Session("filtroCriticidad") = Nothing
 
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegBitacoraSideBar") Then
-                inputCriticidad.SelectedValue = 0
-                Session("filtroFdesde") = Nothing
-                Session("filtroFhasta") = Nothing
-                Session("filtroUser") = Nothing
-                Session("filtroCriticidad") = Nothing
+                    Actualizar()
+                    Dim listUsuarios = BLL.Usuario.Listar
+                    Dim listNombreUsuarios As New List(Of String)
+                    listNombreUsuarios.Add("Todos")
+                    For Each usuario In listUsuarios
+                        listNombreUsuarios.Add(usuario.email)
 
-                Actualizar()
-                Dim listUsuarios = BLL.Usuario.Listar
-                Dim listNombreUsuarios As New List(Of String)
-                listNombreUsuarios.Add("Todos")
-                For Each usuario In listUsuarios
-                    listNombreUsuarios.Add(usuario.email)
-
-                Next
-                userList.DataSource = listNombreUsuarios
-                userList.DataBind()
+                    Next
+                    userList.DataSource = listNombreUsuarios
+                    userList.DataBind()
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                End If
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
+
             End If
+
+
 
         End If
 

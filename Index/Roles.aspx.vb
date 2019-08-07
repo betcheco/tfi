@@ -26,7 +26,7 @@
         If Not delRol.id = 11 Or Not delRol.id = 12 Then
             Try
                 If BLL.Rol.Eliminar(delRol) Then
-                    bitacora.criticidad = 5
+                    bitacora.criticidad = 4
                     bitacora.evento = "Se elimino el rol: " & delRol.id
                     bitacora.usuario = Session("currentUser").email
                     BLL.Bitacora.RegistarEvento(bitacora)

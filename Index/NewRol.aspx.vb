@@ -7,28 +7,37 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
-            Actualizar()
-            If Request.QueryString.HasKeys Then
-                modRol = New BE.Rol
-                modRol.id = Request.QueryString("id")
-                modRol = BLL.Rol.ObtenerRol(modRol)
-                inputNombre.Text = modRol.nombre
-                inputDescripcion.Text = modRol.descripcion
-                'Actualizar()
-                For Each permiso As BE.Permiso In modRol.permisos 'Recorro los permisos del usuario
-                    For Each row As GridViewRow In grdPermisos.Rows 'recorro las filas de la grilla
-                        If row.RowType = DataControlRowType.DataRow Then
-                            Dim chkRow As CheckBox = TryCast(row.Cells(0).FindControl("chk"), CheckBox)
-                            Dim cid As Integer = CInt(row.Cells(1).Text)
-                            If (cid = permiso.id) Then 'si el id de la fila coincide con el id del permiso, lo chequeo
-                                chkRow.Checked = True
-                            End If
-                        End If
-                    Next
-                Next
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegRolesSideBar") Then
+                    Actualizar()
+                    If Request.QueryString.HasKeys Then
+                        modRol = New BE.Rol
+                        modRol.id = Request.QueryString("id")
+                        modRol = BLL.Rol.ObtenerRol(modRol)
+                        inputNombre.Text = modRol.nombre
+                        inputDescripcion.Text = modRol.descripcion
+                        'Actualizar()
+                        For Each permiso As BE.Permiso In modRol.permisos 'Recorro los permisos del usuario
+                            For Each row As GridViewRow In grdPermisos.Rows 'recorro las filas de la grilla
+                                If row.RowType = DataControlRowType.DataRow Then
+                                    Dim chkRow As CheckBox = TryCast(row.Cells(0).FindControl("chk"), CheckBox)
+                                    Dim cid As Integer = CInt(row.Cells(1).Text)
+                                    If (cid = permiso.id) Then 'si el id de la fila coincide con el id del permiso, lo chequeo
+                                        chkRow.Checked = True
+                                    End If
+                                End If
+                            Next
+                        Next
+                    Else
+                        'Es un nuevo rol
+                    End If
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "No tiene los permisos necesarios", "Roles.aspx")
+                End If
             Else
-                'Es un nuevo rol
+                Response.Redirect("Home.aspx")
             End If
+
         Else
             If Request.QueryString.HasKeys Then
                 modRol = New BE.Rol

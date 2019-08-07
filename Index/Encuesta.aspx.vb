@@ -5,11 +5,17 @@ Public Class Encuesta
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMEncuestasSideBar") Then
 
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMEncuestasSideBar") Then
+
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                End If
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
             End If
+
             'If Not Request.QueryString("id") Is Nothing Then
             '    Session("modEncuesta") = True
             '    Cargar()

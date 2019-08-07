@@ -1,0 +1,12 @@
+.tabla {
+  border-width:2px;
+  border-style:solid;
+  border-collapse:collapse;
+  overflow: auto;
+  width: 100%;
+  /*display: block;
+*/}
+
+.tr:hover{
+	background-color: #00ccff;
+}

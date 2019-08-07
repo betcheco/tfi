@@ -4,11 +4,17 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegBackupSideBar") Then
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegBackupSideBar") Then
 
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                End If
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
             End If
+
+
         End If
     End Sub
 
@@ -21,9 +27,9 @@
         backup.name = "GolfTracking_" & fecha.ToString
         If BLL.Backup.RealizarBackup(backup) Then
             'Muestro mensaje de exito
-            bitacora.criticidad = 5
+            bitacora.criticidad = 4
             bitacora.evento = "Se genero el backup: " & backup.name
-            bitacora.usuario = ""
+            bitacora.usuario = Session("currentUser").email
             BLL.Bitacora.RegistarEvento(bitacora)
             TryCast(Me.Master, masterPrincipal).mostrarMesaje("Exito", "El backup se realizo con exito", "Home.aspx")
         Else

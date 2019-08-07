@@ -4,11 +4,16 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMNoticasSideBar") Then
-                ActualizarNoticias()
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMNoticasSideBar") Then
+                    ActualizarNoticias()
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                End If
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
             End If
+
         End If
 
     End Sub
@@ -43,7 +48,7 @@
                 bitacora.usuario = Session("currentUser").email
                 'bitacora.usuario = "user"
                 bitacora.criticidad = 3
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Noticia eliminada con exito0", "La noticia fue eliminada con exito", Nothing)
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Noticia eliminada con exito", "La noticia fue eliminada con exito", Nothing)
                 ActualizarNoticias()
             End If
         Catch ex As Exception

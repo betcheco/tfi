@@ -1,12 +1,18 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Backup
+
+    Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"
+    Shared mCon As SqlConnection = New SqlConnection(mstrConexion)
+
+
+
     Shared Function RealizarBackup(pBackup As BE.Backup) As Boolean
         ' Dim mstrConexion As String = "Data Source=APU-PC\MSSQL;Initial Catalog=GolfTracking;Integrated Security=True"
         'Dim mstrConexion As String = "Data Source=.\SQL_UAI;Initial Catalog=master;Integrated Security=True"
         'Lenovo
-        Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"
-        Dim mCon As SqlConnection
+        'Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"
+        ' Dim mCon As SqlConnection
         Dim sqlBackup As String = "BACKUP DATABASE [GolfTracking] TO DISK = 'C:\Temp\" & pBackup.name & ".bak'"
         Try
             SqlConnection.ClearAllPools()
@@ -31,7 +37,7 @@ Public Class Backup
     End Function
 
     Shared Function RealizarRestore(pBackup As BE.Backup) As Boolean
-        Dim mCon As SqlConnection
+        'Dim mCon As SqlConnection
         Dim discos As String = " DISK = '" & pBackup.path & "'"
 
         'Dim sqlRestore As String = "Alter Database [GolfTracking]  SET Single_user " &
@@ -50,7 +56,7 @@ Public Class Backup
         '"GO;"
 
         ' Dim mstrConexion As String = "Data Source=APU-PC\MSSQL;Initial Catalog=master;Integrated Security=True"
-        Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=GolfTracking;Integrated Security=True"
+        'Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"
 
         'MsgBox(sqlRestore)
 

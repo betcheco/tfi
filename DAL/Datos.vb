@@ -18,6 +18,9 @@ Public Class Datos
 
     Public Function Leer(query As String, h As Hashtable) As DataSet
         Dim ds As New DataSet
+        If Conn.State = ConnectionState.Closed Then
+            Conn.Open()
+        End If
         Try
 
 
@@ -35,6 +38,8 @@ Public Class Datos
             Return ds
         Catch ex As Exception
             Throw ex
+        Finally
+            Conn.Close()
         End Try
     End Function
 
@@ -60,6 +65,9 @@ Public Class Datos
             Throw ex
             Tranx.Rollback()
             Return False
+        Finally
+            Conn.Close()
+
         End Try
     End Function
 

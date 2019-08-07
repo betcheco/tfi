@@ -5,31 +5,36 @@ Public Class Reportes
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnReportesSideBar") Then
+                    Try
+                        divTiempoDeRespuesta.Visible = False
+                        Me.divFichasDeOpinion.Visible = False
+                        Me.divGanancias.Visible = False
+                        Me.divEncuestas.Visible = False
 
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnReportesSideBar") Then
-                Try
-                    divTiempoDeRespuesta.Visible = False
-                    Me.divFichasDeOpinion.Visible = False
-                    Me.divGanancias.Visible = False
-                    Me.divEncuestas.Visible = False
+                        Dim dsEncuestas = BLL.Encuesta.listar()
+                        Me.grdEncuestas.DataSource = dsEncuestas
+                        Me.grdEncuestas.DataBind()
 
-                    Dim dsEncuestas = BLL.Encuesta.listar()
-                    Me.grdEncuestas.DataSource = dsEncuestas
-                    Me.grdEncuestas.DataBind()
+                        Dim dsFichasDeOpinion = BLL.Encuesta.listar(True)
+                        Me.grdFichasDeOpinion.DataSource = dsFichasDeOpinion
+                        Me.grdFichasDeOpinion.DataBind()
 
-                    Dim dsFichasDeOpinion = BLL.Encuesta.listar(True)
-                    Me.grdFichasDeOpinion.DataSource = dsFichasDeOpinion
-                    Me.grdFichasDeOpinion.DataBind()
-
-                    Me.gridGanacias.Visible = False
-                    Me.btnVerListado.Text = "Ver listado"
-                    Session("verlistadoganancias") = True
-                Catch ex As Exception
-                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "ups! " & ex.Message, Nothing)
-                End Try
+                        Me.gridGanacias.Visible = False
+                        Me.btnVerListado.Text = "Ver listado"
+                        Session("verlistadoganancias") = True
+                    Catch ex As Exception
+                        TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "ups! " & ex.Message, Nothing)
+                    End Try
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                End If
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
             End If
+
+
 
         Else
             'If Session("verlistadoganancias") Then
@@ -47,6 +52,7 @@ Public Class Reportes
         Me.divFichasDeOpinion.Visible = False
         Me.divGanancias.Visible = False
         Me.divEncuestas.Visible = False
+        Me.divGanancias_Content.Visible = False
 
         Me.btnChats.CssClass = "btn-chats-active"
         Me.btnEncuestas.CssClass = "btn-outline-warning"
@@ -107,6 +113,7 @@ Public Class Reportes
         Me.divGanancias.Visible = False
         Me.divEncuestas.Visible = False
         Me.divGananciasResultados.Visible = False
+        Me.divGanancias_Content.Visible = False
 
         Me.btnChats.CssClass = "btn-outline-danger"
         Me.btnEncuestas.CssClass = "btn-outline-warning"
@@ -120,6 +127,8 @@ Public Class Reportes
         Me.divGanancias.Visible = True
         Me.divEncuestas.Visible = False
         Me.divGananciasResultados.Visible = False
+        'Me.divGanancias_Content.Visible = True
+        'Me.divGananciasResultados.Visible = True
 
 
         Me.btnChats.CssClass = "btn-outline-danger"
@@ -138,7 +147,7 @@ Public Class Reportes
         Me.divGanancias.Visible = False
         Me.divEncuestas.Visible = True
         Me.divGananciasResultados.Visible = False
-
+        Me.divGanancias_Content.Visible = False
 
         Me.btnChats.CssClass = "btn-outline-danger"
         Me.btnEncuestas.CssClass = "btn-encuestas-active"
@@ -189,6 +198,7 @@ Public Class Reportes
         Me.divFichasDeOpinion.Visible = False
         Me.divGanancias.Visible = True
         Me.divEncuestas.Visible = False
+        Me.divGanancias_Content.Visible = True
         Try
             Dim res = BLL.Reporte.ytd()
             Me.lblTotalMensual.Text = BLL.Reporte.total(res)
@@ -217,6 +227,7 @@ Public Class Reportes
         Me.divFichasDeOpinion.Visible = False
         Me.divGanancias.Visible = True
         Me.divEncuestas.Visible = False
+        Me.divGanancias_Content.Visible = True
 
         Try
             Dim res = BLL.Reporte.mensual(CInt(ddlMes.SelectedValue))
@@ -250,7 +261,7 @@ Public Class Reportes
                 TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Debe seleccionar ambas fechas validas", Nothing)
                 Return
             End If
-
+            Me.divGanancias_Content.Visible = True
             If Me.dpDesdeGanancias.Text <> "" And Me.dpHastaGanancias.Text <> "" Then
                 If CDate(Me.dpDesdeGanancias.Text) < CDate(Me.dpHastaGanancias.Text) Then
                     Dim res = BLL.Reporte.fecha(Me.dpDesdeGanancias.Text, Me.dpHastaGanancias.Text)
@@ -282,6 +293,7 @@ Public Class Reportes
     End Sub
 
     Protected Sub btnVerListado_Click(sender As Object, e As EventArgs) Handles btnVerListado.Click
+        Me.divGanancias_Content.Visible = True
         Try
             If Session("verlistadoganancias") Then
                 Me.gridGanacias.Visible = True

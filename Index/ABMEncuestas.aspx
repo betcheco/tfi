@@ -6,8 +6,11 @@
  
 
     <div class="flex-row">
-        <Label runat="server"  for="grd" class="page-title">Encuestas</Label>
-    <asp:GridView ID="grd" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-sm" DataKeyNames="id" Width="600px" AllowPaging="True" PageSize="10">
+        <div class="text-center">
+        <Label runat="server"  for="grd" class="page-title h5">Encuestas</Label>
+            </div>
+        <div class="table-responsive">
+    <asp:GridView ID="grd" runat="server" AutoGenerateColumns="False" class="table table-striped table-light table-hover w-100" DataKeyNames="id"  AllowPaging="True" PageSize="10">
         <Columns>
             <asp:ButtonField CommandName="Select" ShowHeader="True" Text='<i class="far fa-eye"></i>'>
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="35px" />
@@ -26,8 +29,12 @@
             </asp:CheckBoxField>
         </Columns>
     </asp:GridView>
-        <Label runat="server"  for="gridFichas" class="page-title">Ficha de opinion</Label>
-           <asp:GridView ID="gridFichas" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover table-sm" DataKeyNames="id" Width="600px" AllowPaging="True" PageSize="10">
+            </div>
+        <div class="text-center">
+        <Label runat="server"  for="gridFichas" class="page-title h5">Ficha de opinion</Label>
+            </div>
+        <div class="table-responsive">
+           <asp:GridView ID="gridFichas" runat="server" AutoGenerateColumns="False" class="table table-striped table-light table-hover w-100" DataKeyNames="id"  AllowPaging="True" PageSize="10">
         <Columns>
             <asp:ButtonField CommandName="Select" ShowHeader="True" Text='<i class="far fa-eye"></i>'>
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="35px" />
@@ -46,13 +53,18 @@
             </asp:CheckBoxField>
         </Columns>
     </asp:GridView>
+            </div>
         </div>
-    
-    <asp:Button class="btn btn-primary mt-1" ID="btnNuevo" runat="server" Text="Nuevo" formnovalidate />
-        <a class="d-block small mt-3 ml-2" href="Home.aspx">Ir a inicio</a>
-  
-         <div id="divChart" runat="server" class="form-group row mt-5">
-            <div class="col-6">
+
+
+    <div class="row mt-2 d-flex justify-content-center">
+        <asp:Button class="btn btn-primary mt-1" ID="btnNuevo" runat="server" Text="Nuevo" formnovalidate />
+    </div>
+
+   
+
+         <div id="divChart" runat="server" class="row mx-auto justify-content-center">
+            
                 <asp:Chart ID="chartEncuesta" runat="server" Style="max-width: 100%">
                     <Series>
                         <asp:Series Name="Series1"></asp:Series>
@@ -61,9 +73,11 @@
                         <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
                     </ChartAreas>
                 </asp:Chart>
-            </div>
+            
         </div>
-
+     <div class="row mt-2 d-flex justify-content-center">
+        <a class="small mt-3 ml-2" href="Home.aspx">Ir a inicio</a>
+    </div>
   <%--  <div class="row mt-2 d-flex justify-content-center">
                 <a class="d-block small mt-3" href="Home.aspx">Ir a inicio</a>
             </div>

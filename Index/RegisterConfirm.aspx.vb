@@ -4,7 +4,12 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
             If Session("currentUser") Is Nothing Then
-                oUser.token = Request.QueryString("id")
+                If Request.QueryString.HasKeys Then
+                    oUser.token = Request.QueryString("id")
+                Else
+                    Response.Redirect("Home.aspx")
+                End If
+
             Else
                 Session("userToConfirm") = Session("currentUser")
             End If

@@ -2,10 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="card-header">
-        <h2>Administración de roles</h2>
+     <div class="text-center">
+        <h5>Administración de roles</h5>
     </div>
-    <asp:GridView class="table table-striped table-light table-hover"  ID="grdRoles" runat="server" AutoGenerateColumns="False" DataKeyNames="id" AllowPaging="True">
+    <div class="table-responsive">
+    <asp:GridView class="table table-striped table-light table-hover w-100"  ID="grdRoles" runat="server" AutoGenerateColumns="False" DataKeyNames="id" AllowPaging="True" BorderWidth="2">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="Id" />
             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
@@ -14,6 +15,7 @@
             <asp:ButtonField CommandName="Delete" Text='<i class="fa fa-trash"></i>' />
         </Columns>
     </asp:GridView>
+        </div>
     <div class="row d-flex justify-contentcenter">
     <asp:Button ID="btnNuevo" runat="server" Text="Nuevo Rol" CssClass="btn btn-primary mx-md-auto mt-1"/>
           </div>

@@ -5,12 +5,16 @@ Public Class ABMEncuestas
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
-
-            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMEncuestasSideBar") Then
-                Actualizar()
+            If Not Session("currentUser") Is Nothing Then
+                If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnABMEncuestasSideBar") Then
+                    Actualizar()
+                Else
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                End If
             Else
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+                Response.Redirect("Home.aspx")
             End If
+
         End If
     End Sub
 

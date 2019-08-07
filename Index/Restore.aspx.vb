@@ -2,11 +2,16 @@
     Inherits System.Web.UI.Page
     Dim bitacora As New BE.Bitacora
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegRestoreSideBar") Then
+        If Not Session("currentUser") Is Nothing Then
+            If BLL.Usuario.CheckPermiso(Session("currentUser"), "btnSegRestoreSideBar") Then
 
+            Else
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+            End If
         Else
-            TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No posee permisos para acceder a la pagina", "Home.aspx")
+            Response.Redirect("Home.aspx")
         End If
+
     End Sub
 
     Protected Sub btnRestore_Click(sender As Object, e As EventArgs) Handles btnRestore.Click

@@ -8,8 +8,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <%-- <asp:ScriptManager runat="server"></asp:ScriptManager>--%>
+    <div class="text-center">
+        <h5>Cuenta Corriente</h5>
+    </div>
     <h4 id="sinresultados" class=" alert-info" runat="server" visible="false">No se encontraron resultados</h4>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-light table-hover" AllowPaging="True" >
+    <div class="table-responsive">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" class="table table-striped table-light table-hover w-100" AllowPaging="True" >
          <Columns>
             <asp:ButtonField CommandName="ViewPdf" ShowHeader="True" Text='<i class="far fa-file-pdf"></i>'>
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="35px" />
@@ -67,6 +71,7 @@
              </Columns>
       
     </asp:GridView>
+        </div>
       
     <div class="row mt-2 d-flex justify-content-center">
                 <a class="d-block small mt-3" href="Home.aspx">Ir al inicio</a>

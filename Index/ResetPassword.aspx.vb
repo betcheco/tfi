@@ -3,19 +3,24 @@
     Dim user As New BE.Usuario
     Dim bitacora As New BE.Bitacora
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'buscar usuario asociado y verificar que pueda cambiar el password
-        user.token = Request.QueryString("id")
-        user = BLL.Usuario.BuscarUsuario(user)
+        If Request.QueryString.HasKeys Then
+            'buscar usuario asociado y verificar que pueda cambiar el password
+            user.token = Request.QueryString("id")
+            user = BLL.Usuario.BuscarUsuario(user)
 
-        If Not (Trim(user.estado) = "RESET") Then
-            'Muestro error el usuario no pidio reset password
-            bitacora.usuario = user.email
-            bitacora.evento = "Error, el usuario no solicito un blanqueo de password"
-            bitacora.criticidad = 5
-            divError.Visible = True
+            If Not (Trim(user.estado) = "RESET") Then
+                'Muestro error el usuario no pidio reset password
+                bitacora.usuario = user.email
+                bitacora.evento = "Error, el usuario no solicito un blanqueo de password"
+                bitacora.criticidad = 5
+                divError.Visible = True
+            Else
+                container.Visible = True
+            End If
         Else
-            container.Visible = True
+            Response.Redirect("Home.aspx")
         End If
+
     End Sub
 
     Protected Sub btnResetPwd_Click(sender As Object, e As EventArgs) Handles btnResetPwd.Click
