@@ -2,7 +2,8 @@
 
 Public Class Backup
 
-    Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"
+    '  Const mstrConexion As String = "Data Source=PC-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True"
+    Const mstrConexion As String = "Data Source=.\SQL_UAI;Initial Catalog=master;Integrated Security=True"
     Shared mCon As SqlConnection = New SqlConnection(mstrConexion)
 
 
