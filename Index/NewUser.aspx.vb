@@ -99,18 +99,23 @@ Public Class NewUser
         Else
             'es para modificar el usuario
             Try
-                modUser.email = inputEmail.Value
-                modUser.apellido = inputlastName.Value
-                modUser.nombre = inputfirstName.Value
-                modUser.estado = stateDropdownlist.Text
-                modUser.roles = grilla.rolesSeleccionados
-                If BLL.Usuario.ModificarUsuario(modUser) Then
-                    'Usuario modificado con exito
-                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Exito", "El usuario fue modificado exitosamente", "Usuarios.aspx")
-                    'Response.Redirect("Usuarios.aspx")
+                If Not modUser.email = "golftracking2018@gmail.com" Then
+                    modUser.email = inputEmail.Value
+                    modUser.apellido = inputlastName.Value
+                    modUser.nombre = inputfirstName.Value
+                    modUser.estado = stateDropdownlist.Text
+                    modUser.roles = grilla.rolesSeleccionados
+                    If BLL.Usuario.ModificarUsuario(modUser) Then
+                        'Usuario modificado con exito
+                        TryCast(Me.Master, masterPrincipal).mostrarMesaje("Exito", "El usuario fue modificado exitosamente", "Usuarios.aspx")
+                        'Response.Redirect("Usuarios.aspx")
+                    Else
+                        TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! Lo sentimos sucedio un error modificando el usuario", Nothing)
+                    End If
                 Else
-                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! Lo sentimos sucedio un error modificando el usuario", Nothing)
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No se puede modificar el usuario administrador del sistema", "Usuarios.aspx")
                 End If
+
             Catch ex As Exception
                 TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error!", ex.Message, Nothing)
             End Try

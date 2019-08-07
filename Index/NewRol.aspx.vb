@@ -102,42 +102,49 @@
                 bitacora.evento = "Se creo un nuevo rol: " & rol.nombre
                 bitacora.usuario = Session("currentUser").email
                 BLL.Bitacora.RegistarEvento(bitacora)
-                Response.Redirect("Roles.aspx")
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Se creo con exito el rol", "Rol.aspx")
+                '  Response.Redirect("Roles.aspx")
             Else
                 'Mostrar error de creacion de rol
-                MsgBox("Error")
-
-                Response.Redirect("Roles.aspx")
+                ' MsgBox("Error")
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Sucedio un error en la creacion del rol", "Rol.aspx")
+                'Response.Redirect("Roles.aspx")
             End If
 
         Else
             'modificar rol
-            For Each row As GridViewRow In grdPermisos.Rows
-                If row.RowType = DataControlRowType.DataRow Then
-                    Dim chkRow As CheckBox = TryCast(row.Cells(0).FindControl("chk"), CheckBox)
-                    If chkRow.Checked Then
-                        Dim permiso As New BE.Permiso
-                        Dim cid As String = row.Cells(1).Text
-                        permiso.id = row.Cells(1).Text
-                        permiso.nombre = row.Cells(2).Text
-                        permiso.descripcion = row.Cells(3).Text
-                        listaSeleccionados.Add(permiso)
-                        'MsgBox("Permiso seleccionado: " & cid)
+            If Not modRol.id = 13 Xor modRol.id = 11 Xor modRol.id = 12 Then
+                For Each row As GridViewRow In grdPermisos.Rows
+                    If row.RowType = DataControlRowType.DataRow Then
+                        Dim chkRow As CheckBox = TryCast(row.Cells(0).FindControl("chk"), CheckBox)
+                        If chkRow.Checked Then
+                            Dim permiso As New BE.Permiso
+                            Dim cid As String = row.Cells(1).Text
+                            permiso.id = row.Cells(1).Text
+                            permiso.nombre = row.Cells(2).Text
+                            permiso.descripcion = row.Cells(3).Text
+                            listaSeleccionados.Add(permiso)
+                            'MsgBox("Permiso seleccionado: " & cid)
+                        End If
                     End If
-                End If
-            Next
+                Next
 
 
-            modRol.nombre = Me.inputNombre.Text
-            modRol.descripcion = Me.inputDescripcion.Text
-            modRol.permisos = listaSeleccionados
+                modRol.nombre = Me.inputNombre.Text
+                modRol.descripcion = Me.inputDescripcion.Text
+                modRol.permisos = listaSeleccionados
 
-            BLL.Rol.ModificarRol(modRol)
-            bitacora.criticidad = 4
-            bitacora.evento = "Se modifico el rol: " & modRol.nombre
-            bitacora.usuario = Session("currentUser").email
-            BLL.Bitacora.RegistarEvento(bitacora)
-            Response.Redirect("Roles.aspx")
+                BLL.Rol.ModificarRol(modRol)
+                bitacora.criticidad = 4
+                bitacora.evento = "Se modifico el rol: " & modRol.nombre
+                bitacora.usuario = Session("currentUser").email
+                BLL.Bitacora.RegistarEvento(bitacora)
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Exito", "El rol se modifico con exito", "Roles.aspx")
+                'Response.Redirect("Roles.aspx")
+            Else
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No se puede modificar los roles del sistema", "Roles.aspx")
+            End If
+
 
         End If
 

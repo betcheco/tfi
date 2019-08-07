@@ -21,9 +21,9 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
-                <div id="divEncuestaChart" runat="server" class="card-body" visible="false">
+                <div id="divEncuestaChart" runat="server" class="card-body text-center" visible="false">
                     <h5 class="card-title">Resultados</h5>
-                    <asp:Chart ID="chartEncuesta" runat="server" Style="max-width: 100%">
+                    <asp:Chart ID="chartEncuesta" runat="server" Style="max-width: 100%" CssClass="text-center justify-content-center">
                         <Series>
                             <asp:Series Name="Series1"></asp:Series>
                         </Series>

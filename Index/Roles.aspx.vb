@@ -23,7 +23,7 @@
         'MsgBox("Elimino el rol: " & Me.grdRoles.DataKeys(e.RowIndex).Value)
         Dim delRol As New BE.Rol
         delRol.id = Me.grdRoles.DataKeys(e.RowIndex).Value
-        If Not delRol.id = 11 Or Not delRol.id = 12 Then
+        If Not delRol.id = 11 Xor Not delRol.id = 12 Xor Not delRol.id = 13 Then
             Try
                 If BLL.Rol.Eliminar(delRol) Then
                     bitacora.criticidad = 4

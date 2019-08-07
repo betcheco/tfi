@@ -31,17 +31,24 @@
         user.email = grdUsers.Rows(e.RowIndex).Cells(3).Text
         user = BLL.Usuario.BuscarUsuario(user)
         user.activo = 0
-        If BLL.Usuario.ModificarUsuario(user) Then
-            bitacora.criticidad = 4
-            bitacora.evento = "Se elimino el usuario: " & user.email
-            bitacora.usuario = Session("currentUser").email
-            BLL.Bitacora.RegistarEvento(bitacora)
-            TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Se elimino el usuario " & user.email & " con exito", "Usuarios.aspx")
-            Actualizar()
-        Else
-            'error al eliminar el usuario
+        If Not user.email = "golftracking2018@gmail.com" Then
+            If BLL.Usuario.ModificarUsuario(user) Then
+                bitacora.criticidad = 4
+                bitacora.evento = "Se elimino el usuario: " & user.email
+                bitacora.usuario = Session("currentUser").email
+                BLL.Bitacora.RegistarEvento(bitacora)
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Se elimino el usuario " & user.email & " con exito", "Usuarios.aspx")
+                Actualizar()
+            Else
+                'error al eliminar el usuario
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Sucedio un error y no se pudo eliminar el usuario", "Usuarios.aspx")
 
+            End If
+        Else
+            TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "No se puede eliminar el usuario administrador del sistema", "Usuarios.aspx")
         End If
+
+
         'Response.Redirect("NewUser.aspx?user="& user.email)
     End Sub
 
