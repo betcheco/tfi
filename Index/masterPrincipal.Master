@@ -263,7 +263,7 @@
                 <asp:Repeater ID="rptEncuestaOpciones" runat="server">
                     <ItemTemplate>
                         <asp:LinkButton
-                            class="btn btn-primary"
+                            class="btn btn-primary m-1"
                             runat="server"
                             UseSubmitBehavior="false"
                             CommandArgument='<%# Eval("id") %>'>

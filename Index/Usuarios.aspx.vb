@@ -34,7 +34,7 @@
         If BLL.Usuario.ModificarUsuario(user) Then
             bitacora.criticidad = 4
             bitacora.evento = "Se elimino el usuario: " & user.email
-            bitacora.usuario = "prueba"
+            bitacora.usuario = Session("currentUser").email
             BLL.Bitacora.RegistarEvento(bitacora)
             TryCast(Me.Master, masterPrincipal).mostrarMesaje("Atencion", "Se elimino el usuario " & user.email & " con exito", "Usuarios.aspx")
             Actualizar()

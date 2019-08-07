@@ -100,6 +100,7 @@
             If result Then
                 bitacora.criticidad = 4
                 bitacora.evento = "Se creo un nuevo rol: " & rol.nombre
+                bitacora.usuario = Session("currentUser").email
                 BLL.Bitacora.RegistarEvento(bitacora)
                 Response.Redirect("Roles.aspx")
             Else
@@ -134,6 +135,7 @@
             BLL.Rol.ModificarRol(modRol)
             bitacora.criticidad = 4
             bitacora.evento = "Se modifico el rol: " & modRol.nombre
+            bitacora.usuario = Session("currentUser").email
             BLL.Bitacora.RegistarEvento(bitacora)
             Response.Redirect("Roles.aspx")
 

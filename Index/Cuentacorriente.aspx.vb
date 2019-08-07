@@ -32,6 +32,12 @@
             o.id = CInt(ViewState("operacionId"))
             o.estado = e
             BLL.Operacion.setEstado(o)
+            Dim b As New BE.Bitacora
+            b.criticidad = 2
+            b.evento = "Se cambio el estado de la operacion: " & o.id & " a:  " & o.estado
+            b.usuario = Session("currentUser").email
+            BLL.Bitacora.RegistarEvento(b)
+
             If e = "CANCELADO" Then
                 o = BLL.Operacion.obtener(o.id)
                 Dim factura As New BE.Factura
@@ -60,10 +66,16 @@
              nc.saldo,
              nc.usuario.email
          )
+                    'Dim b As New BE.Bitacora
+                    b.criticidad = 2
+                    b.evento = "Se genero la NC por la factura: " & factura.id
+                    b.usuario = Session("currentUser").email
+                    BLL.Bitacora.RegistarEvento(b)
                 End If
             End If
 
-                actualizar()
+            actualizar()
+            Response.Redirect("Cuentacorriente.aspx")
         Catch ex As Exception
             TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! " & ex.Message, Nothing)
         End Try
@@ -100,7 +112,13 @@
             Dim o As New BE.Operacion
             o.id = operacionId
             o.estado = "CALIFICADO"
-            BLL.Operacion.setEstado(o)
+            If BLL.Operacion.setEstado(o) Then
+                Dim b As New BE.Bitacora
+                b.criticidad = 3
+                b.evento = "Se califico el pedido"
+                b.usuario = Session("currentUser").email
+                BLL.Bitacora.RegistarEvento(b)
+            End If
 
             actualizar()
         Catch ex As Exception

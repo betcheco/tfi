@@ -84,7 +84,8 @@ Public Class NewUser
                     Dim msg = "<br /><br />Se ha generado un nuevo usuario asociado a este mail.Por favor ingresa en este link para activar tu cuenta"
                     msg += "<br /><a href = 'http://localhost:49915/ResetPassword.aspx?id=" & newUser.token + "'>Click aqui.</a>"
                     'Helpers.sendMail.send("Bienvenido a GolfTracking", CreateBody(newUser.nombre, "Activar Usuario", msg), newUser.email)
-                    Response.Redirect("Usuarios.aspx")
+                    TryCast(Me.Master, masterPrincipal).mostrarMesaje("Exito", "El usuario fue creado exitosamente", "Usuarios.aspx")
+                    'Response.Redirect("Usuarios.aspx")
                 Else
                     'error creacion del usuario
                     BLL.Usuario.EliminarUsuario(newUser)
@@ -93,7 +94,7 @@ Public Class NewUser
                 End If
             Else
                 'Error de creacion del usuario
-                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Ups! Lo sentimos sucedio un error modificando el usuario", Nothing)
+                TryCast(Me.Master, masterPrincipal).mostrarMesaje("Error", "Al parecer ya existe usuario registrado con ese email, intentelo nuevamente", Nothing)
             End If
         Else
             'es para modificar el usuario
